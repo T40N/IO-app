@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">IO-app</string>
+    <string name="komunikator_dla_biznesu">Komunikator dla biznesu</string>
+    <string name="email">Email</string>
+    <string name="zaloguj_si">Zaloguj się</string>
+    <string name="has_o">Hasło</string>
+    <string name="zaloguj">Zaloguj</string>
+    <string name="zarejestruj_si">Zarejestruj się</string>
+    <string name="briefcase">briefcase</string>
 </resources>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+
+    <EditText
+        android:id="@+id/password_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_bold"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_ID"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/email_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_bold"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/big_text_ID" />
+
+    <TextView
+        android:id="@+id/top_text_ID"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="@string/komunikator_dla_biznesu"
+        android:textAlignment="center"
+        android:textColor="#A8A8A8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/big_text_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/zaloguj_si"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_text_ID" />
+
+    <Button
+        android:id="@+id/zaloguj_btn_ID"
+        android:layout_width="226dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/zaloguj"
+        android:textAllCaps="false"
+        app:backgroundTint="#00C8F8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_ID" />
+
+    <Button
+        android:id="@+id/rejestruj_btn_ID"
+        android:layout_width="226dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/zarejestruj_si"
+        android:textAllCaps="false"
+        android:textColor="#00C8F8"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zaloguj_btn_ID" />
+
+    <TextView
+        android:id="@+id/email_label_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="@string/email"
+        android:textColor="#00C8F8"
+        android:labelFor="@id/email_ID"
+        app:layout_constraintBottom_toTopOf="@+id/email_ID"
+        app:layout_constraintEnd_toEndOf="@+id/email_ID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/email_ID"
+        app:layout_constraintTop_toBottomOf="@+id/big_text_ID"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/password_label_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="@string/has_o"
+        android:textColor="#00C8F8"
+        android:labelFor="@id/password_ID"
+        app:layout_constraintBottom_toTopOf="@+id/password_ID"
+        app:layout_constraintEnd_toEndOf="@+id/password_ID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_ID"
+        app:layout_constraintTop_toBottomOf="@+id/email_ID"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="133dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/briefcase"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_outline_shopping_bag_24" />
+</androidx.constraintlayout.widget.ConstraintLayout>
