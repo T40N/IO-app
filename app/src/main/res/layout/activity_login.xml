@@ -61,10 +61,11 @@
         app:layout_constraintTop_toBottomOf="@+id/top_text_ID" />
 
     <Button
-        android:id="@+id/zaloguj_btn_ID"
+        android:id="@+id/login_accept_btn_ID"
         android:layout_width="226dp"
         android:layout_height="54dp"
         android:layout_marginTop="56dp"
+        android:fontFamily="@font/quicksand_bold"
         android:text="@string/zaloguj"
         android:textAllCaps="false"
         app:backgroundTint="#00C8F8"
@@ -73,17 +74,18 @@
         app:layout_constraintTop_toBottomOf="@+id/password_ID" />
 
     <Button
-        android:id="@+id/rejestruj_btn_ID"
+        android:id="@+id/register_btn_ID"
         android:layout_width="226dp"
         android:layout_height="54dp"
         android:layout_marginTop="28dp"
+        android:fontFamily="@font/quicksand_bold"
         android:text="@string/zarejestruj_si"
         android:textAllCaps="false"
         android:textColor="#00C8F8"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zaloguj_btn_ID" />
+        app:layout_constraintTop_toBottomOf="@+id/login_accept_btn_ID" />
 
     <TextView
         android:id="@+id/email_label_ID"
