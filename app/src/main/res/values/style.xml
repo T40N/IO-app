@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="buttonBlueStyle">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/accent_blue</item>
+        <item name="android:width">@dimen/btn_layout_width</item>
+        <item name="android:height">@dimen/byn_layout_height</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="buttonWhiteStyle">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/white</item>
+        <item name="android:width">@dimen/btn_layout_width</item>
+        <item name="android:height">@dimen/byn_layout_height</item>
+    </style>
+
+    <style name="textBig">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="textBlueBig">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="textBlue">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/accent_blue</item>
+    </style>
+
+    <style name="textGreyBig">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="textGrey">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_grey</item>
+    </style>
+</resources>
