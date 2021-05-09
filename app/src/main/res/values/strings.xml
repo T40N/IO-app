@@ -11,4 +11,29 @@
     <string name="has_o">Hasło</string>
     <string name="kontynuuj">Kontynuuj</string>
     <string name="powr_t_do_ekranu_logowania">Powrót do ekranu logowania</string>
+    <string name="imie">Imię:</string>
+
+
+    <string name="dost_pny">Dostępny</string>
+    <string name="user">user</string>
+    <string name="u_ytkownik">Użytkownik</string>
+    <string name="user_img">user_img</string>
+
+    <string name="grupy_zadaniowe">Grupy zadaniowe</string>
+    <string name="dodaj_zadanie">Dodaj zadanie</string>
+    <string name="wybierz_grup_zadaniow">Wybierz grupę zadaniową</string>
+    <string name="podaj_nazw_zadania">Podaj nazwę zadania</string>
+    <string name="podaj_opis_zadania">Podaj opis zadania</string>
+    <string name="podaj_dat">Podaj datę</string>
+    <string name="podaj_godzin">Podaj godzinę</string>
+    <string name="przypomnienia">Przypomnienia</string>
+    <string name="podaj_nazw_przypomnienia">Podaj nazwę przypomnienia</string>
+    <string name="tydzie">Tydzień</string>
+    <string name="tydzie_przed">Tydzień przed</string>
+    <string name="dzie_przed">Dzień przed</string>
+    <string name="przypisz_u_ytkownik_w">Przypisz użytkowników</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="zatwierd_dane">Zatwierdź dane</string>
+
+
 </resources>
