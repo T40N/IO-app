@@ -11,4 +11,11 @@
     <string name="has_o">Hasło</string>
     <string name="kontynuuj">Kontynuuj</string>
     <string name="powr_t_do_ekranu_logowania">Powrót do ekranu logowania</string>
+    <string name="tV_calendarLabel">Kalendarz</string>
+    <string name="today">dziś</string>
+    <string name="upcomingDays">najbliższe dni</string>
+    <string name="week">tydzień</string>
+    <string name="month">miesiąc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
