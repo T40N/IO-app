@@ -20,6 +20,7 @@
         app:headerWeekDayTitleTextSize="10dp"
         app:hourHeight="60dp"
         app:noOfVisibleDays="7"
-        app:textSize="12sp" />
+        app:textSize="12sp"
+        app:todayHeaderTextColor="@color/accent_blue" />
 
 </FrameLayout>
