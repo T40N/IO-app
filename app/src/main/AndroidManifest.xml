@@ -11,6 +11,12 @@
         android:theme="@style/Theme.IOapp" >
         <activity android:name=".task_add_activity" />
         <activity android:name=".user_profile_activity" />
+        <activity android:name=".Calendar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity" >
