@@ -38,4 +38,10 @@
     <string name="month">miesiąc</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="messages">Wiadomości</string>
+    <string name="send_button_description">Button to send a message</string>
+    <string name="type_message">Wpisz wiadomość</string>
+    <string name="chat_name">Name of user/group</string>
+    <string name="personal_message">Wiadomości prywatne</string>
+    <string name="group_message">Wiadomości grupowe</string>
 </resources>
