@@ -38,4 +38,17 @@
     <string name="month">miesiąc</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="task_groups">Grupy Zadaniowe</string>
+    <string name="task_group_name">Nazwa grupy zadaniowej</string>
+    <string name="task_group_user_list">Członkowie grupy</string>
+    <string name="task_group_user">Członek grupy zadaniowej</string>
+    <string name="leader_mark">Leader mark</string>
+    <string name="remove_user_button_description">Button for remove user from list</string>
+    <string name="message_button_description">Button for type a massage to user</string>
+    <string name="task_group_more_description">Button for open task group details</string>
+    <string name="task_group_user_list_description">Button for open task group user list</string>
+    <string name="task_name">Nazwa taska</string>
+    <string name="assigment">Przypisani:</string>
+    <string name="deadline">Termin:</string>
+    <string name="date_example">01/01/2021</string>
 </resources>

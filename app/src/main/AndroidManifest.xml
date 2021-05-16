@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IOapp">
-        <activity android:name=".TaskGroupActivity"></activity>
+        <activity android:name=".TaskGroupGoalsActivity"></activity>
+        <activity android:name=".TaskGroupUserListActivity" />
+        <activity android:name=".TaskGroupManagerActivity" />
         <activity android:name=".task_add_activity" />
         <activity android:name=".user_profile_activity" />
         <activity android:name=".Calendar">

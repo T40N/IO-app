@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class TaskGroupActivity extends AppCompatActivity {
+public class TaskGroupUserListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task_group);
+        setContentView(R.layout.activity_task_group_user_list);
     }
 }
