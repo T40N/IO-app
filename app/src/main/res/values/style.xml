@@ -24,6 +24,18 @@
         <item name="android:textSize">@dimen/big_text_size</item>
     </style>
 
+    <style name="textMedium">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="textSmall">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
     <style name="textRegular">
         <item name="android:fontFamily">@font/quicksand_bold</item>
         <item name="android:textColor">@color/text_black</item>
@@ -35,6 +47,18 @@
         <item name="android:textSize">@dimen/big_text_size</item>
     </style>
 
+    <style name="textBlueMedium">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="textBlueSmall">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
     <style name="textBlue">
         <item name="android:fontFamily">@font/quicksand_bold</item>
         <item name="android:textColor">@color/accent_blue</item>
@@ -44,6 +68,18 @@
         <item name="android:fontFamily">@font/quicksand_bold</item>
         <item name="android:textColor">@color/text_grey</item>
         <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="textGreyMedium">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="textGreySmall">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
     </style>
 
     <style name="textGrey">
