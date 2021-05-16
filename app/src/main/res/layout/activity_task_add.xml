@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".task_add_activity">
+
+    <TextView
+        android:id="@+id/txt_group_name"
+        android:layout_width="197dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="@string/grupy_zadaniowe"
+        android:textAlignment="viewEnd"
+        android:textColor="#0a0a0a"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/txt_group_change"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+        android:ems="10"
+        android:hint="@string/wybierz_grup_zadaniow"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_group_name" />
+
+    <TextView
+        android:id="@+id/txt_task_add_view"
+        style="@style/textBig"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="@string/dodaj_zadanie"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_group_change" />
+
+    <EditText
+        android:id="@+id/txt_title_change"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="@string/podaj_nazw_zadania"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_task_describe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_task_add_view" />
+
+    <EditText
+        android:id="@+id/txt_task_describe"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/podaj_opis_zadania"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_change" />
+
+    <EditText
+        android:id="@+id/txt_time"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="15dp"
+        android:autofillHints="Podaj godzinę"
+        android:ems="10"
+        android:hint="@string/podaj_godzin"
+        android:inputType="time"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_task_describe" />
+
+    <EditText
+        android:id="@+id/txt_date"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="15dp"
+        android:autofillHints="Podaj datę"
+        android:ems="10"
+        android:hint="@string/podaj_dat"
+        android:inputType="date"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/txt_time"
+        app:layout_constraintTop_toBottomOf="@+id/txt_task_describe" />
+
+    <TextView
+        android:id="@+id/txt_reminder_view"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/przypomnienia"
+        style="@style/textBig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_task_describe" />
+
+    <EditText
+        android:id="@+id/txt_reminder"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:autofillHints="Podaj nazwę przypomnienia"
+        android:ems="10"
+        android:hint="@string/podaj_nazw_przypomnienia"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_reminder_view" />
+
+    <CheckBox
+        android:id="@+id/btn_week"
+        android:layout_width="120dp"
+        android:layout_height="42dp"
+        android:text="@string/tydzie_przed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
+
+    <CheckBox
+        android:id="@+id/btn_day"
+        android:layout_width="120dp"
+        android:layout_height="42dp"
+        android:text="@string/dzie_przed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/btn_week"
+        app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
+
+    <EditText
+        android:id="@+id/txt_add_user"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="52dp"
+        android:autofillHints="Przypisz użytkowników"
+        android:ems="10"
+        android:hint="@string/przypisz_u_ytkownik_w"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/buttonBlueStyle"
+        android:layout_width="80dp"
+        android:layout_height="42dp"
+        android:text="@string/dodaj"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txt_add_user"
+        app:layout_constraintTop_toTopOf="@+id/txt_add_user" />
+
+    <Button
+        android:id="@+id/btn_add_task"
+        android:layout_width="200dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/zatwierd_dane"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_add_user" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
