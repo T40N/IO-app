@@ -12,6 +12,13 @@
         <activity android:name=".TaskGroupGoalsActivity"></activity>
         <activity android:name=".TaskGroupUserListActivity" />
         <activity android:name=".TaskGroupManagerActivity" />
+        <activity android:name=".ChatManagerActivity"/>
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".main_view">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".task_add_activity" />
         <activity android:name=".user_profile_activity" />
         <activity android:name=".Calendar">
