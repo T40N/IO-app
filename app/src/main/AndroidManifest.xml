@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IOapp">
+        <activity android:name=".ChatManagerActivity"/>
+        <activity android:name=".MessageActivity" />
         <activity android:name=".main_view">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
