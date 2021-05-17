@@ -14,7 +14,8 @@
         <activity android:name=".GroupList" />
         <activity android:name=".ChatList"/>
         <activity android:name=".Chat" />
-        <activity android:name=".HomeWindow">
+        <activity android:name=".HomeWindow"
+            android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -29,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".loginHeader" />
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
