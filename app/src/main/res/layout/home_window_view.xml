@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeWindow">
+
+    <TextView
+        android:id="@+id/hourTextV"
+        android:layout_width="152dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/hour"
+        android:textAlignment="viewEnd"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dateTextV"
+        android:layout_width="208dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/date"
+        android:textAlignment="viewEnd"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintStart_toStartOf="@+id/hourTextV"
+        app:layout_constraintTop_toBottomOf="@+id/hourTextV" />
+
+    <TextView
+        android:id="@+id/welcomeTextV"
+        style="@style/textBig"
+        android:layout_width="287dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="200dp"
+        android:text="@string/welcomeText"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/hourTextV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="@+id/hourTextV" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="374dp"
+        android:layout_height="303dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextV" />
+
+    <TextView
+        android:id="@+id/termsTextV"
+        style="@style/textGrey"
+        android:layout_width="347dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/upcomingTasks"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

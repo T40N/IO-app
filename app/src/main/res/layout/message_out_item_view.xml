@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin24">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageOutAuthor"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/padding"
+        style="@style/textBlue"
+        android:text="@string/messageAuthor"/>
+    <!-- TODO: remove text-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textRegular"
+        android:id="@+id/messageOut"
+        android:layout_below="@id/messageOutAuthor"
+        android:background="@drawable/message_out"
+        android:text="@string/messageContent"
+        android:layout_alignParentRight="true"/>
+    <!-- TODO: remove text-->
+
+</RelativeLayout>

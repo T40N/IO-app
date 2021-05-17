@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="byn_layout_height">54dp</dimen>
-    <dimen name="btn_layout_width">226dp</dimen>
-    <dimen name="big_text_size">28sp</dimen>
-    <dimen name="medium_text_size">18sp</dimen>
-    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="buttonHeight">54dp</dimen>
+    <dimen name="buttonWidth">226dp</dimen>
+    <dimen name="bigTextSize">28sp</dimen>
+    <dimen name="mediumTextSize">18sp</dimen>
+    <dimen name="smallTextSize">12sp</dimen>
+    <dimen name="calendarTextSize">12sp</dimen>
+    <dimen name="calendarSubheaderSize">10sp</dimen>
     <dimen name="radius">5dp</dimen>
     <dimen name="padding">10dp</dimen>
     <dimen name="margin24">24dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="columnGap">8dp</dimen>
 </resources>
