@@ -16,7 +16,7 @@ public class Calendar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+        setContentView(R.layout.calendar_view);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         NavController navController = Navigation.findNavController(this,R.id.fragmentContainerView);

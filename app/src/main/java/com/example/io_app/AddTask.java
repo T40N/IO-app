@@ -1,14 +1,13 @@
 package com.example.io_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class Login extends AppCompatActivity {
+public class AddTask extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_view);
+        setContentView(R.layout.add_task_view);
     }
 }

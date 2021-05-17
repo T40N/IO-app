@@ -2,88 +2,106 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="buttonBlueStyle">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:backgroundTint" tools:ignore="NewApi">@color/accent_blue</item>
-        <item name="android:minWidth">@dimen/btn_layout_width</item>
-        <item name="android:minHeight">@dimen/byn_layout_height</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/accentBlue</item>
+        <item name="android:minWidth">@dimen/buttonWidth</item>
+        <item name="android:minHeight">@dimen/buttonHeight</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="buttonWhiteStyle">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textColor">@color/accentBlue</item>
         <item name="android:backgroundTint" tools:ignore="NewApi">@color/white</item>
-        <item name="android:minWidth">@dimen/btn_layout_width</item>
-        <item name="android:minHeight">@dimen/byn_layout_height</item>
+        <item name="android:minWidth">@dimen/buttonWidth</item>
+        <item name="android:minHeight">@dimen/buttonHeight</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="textStatusAvailable">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/available</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+    </style>
+
+    <style name="textStatusUnavailable">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/unavailable</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+    </style>
+
+    <style name="textStatusAway">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textColor">@color/away</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
     </style>
 
     <style name="textBig">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_black</item>
-        <item name="android:textSize">@dimen/big_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/bigTextSize</item>
     </style>
 
     <style name="textMedium">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_black</item>
-        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
     </style>
 
     <style name="textSmall">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_black</item>
-        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
     </style>
 
     <style name="textRegular">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="textBlueBig">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/accent_blue</item>
-        <item name="android:textSize">@dimen/big_text_size</item>
+        <item name="android:textColor">@color/accentBlue</item>
+        <item name="android:textSize">@dimen/bigTextSize</item>
     </style>
 
     <style name="textBlueMedium">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/accent_blue</item>
-        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">@color/accentBlue</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
     </style>
 
     <style name="textBlueSmall">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/accent_blue</item>
-        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/accentBlue</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
     </style>
 
     <style name="textBlue">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textColor">@color/accentBlue</item>
     </style>
 
     <style name="textGreyBig">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_grey</item>
-        <item name="android:textSize">@dimen/big_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/bigTextSize</item>
     </style>
 
     <style name="textGreyMedium">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_grey</item>
-        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
     </style>
 
     <style name="textGreySmall">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_grey</item>
-        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
     </style>
 
     <style name="textGrey">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:textColor">@color/gray</item>
     </style>
 </resources>

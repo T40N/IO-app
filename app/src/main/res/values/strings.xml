@@ -1,72 +1,76 @@
 <resources>
-    <string name="app_name">IO-app</string>
-    <string name="komunikator_dla_biznesu">Komunikator dla biznesu</string>
-    <string name="email">Email</string>
-    <string name="zaloguj_si">Zaloguj się</string>
-    <string name="zaloguj">Zaloguj</string>
-    <string name="zarejestruj_si">Zarejestruj się</string>
-    <string name="briefcase">briefcase</string>
-    <string name="imi">Imię</string>
-    <string name="nazwisko">Nazwisko</string>
-    <string name="has_o">Hasło</string>
-    <string name="kontynuuj">Kontynuuj</string>
-    <string name="powr_t_do_ekranu_logowania">Powrót do ekranu logowania</string>
-    <string name="imie">"Imie"</string>
-    <string name="dost_pny">Dostępny</string>
-    <string name="user">user</string>
-    <string name="u_ytkownik">Użytkownik</string>
-    <string name="user_img">user_img</string>
-    <string name="grupy_zadaniowe">Grupy zadaniowe</string>
-    <string name="dodaj_zadanie">Dodaj zadanie</string>
-    <string name="wybierz_grup_zadaniow">Wybierz grupę zadaniową</string>
-    <string name="podaj_nazw_zadania">Podaj nazwę zadania</string>
-    <string name="podaj_opis_zadania">Podaj opis zadania</string>
-    <string name="podaj_dat">Podaj datę</string>
-    <string name="podaj_godzin">Podaj godzinę</string>
-    <string name="przypomnienia">Przypomnienia</string>
-    <string name="podaj_nazw_przypomnienia">Podaj nazwę przypomnienia</string>
-    <string name="tydzie">Tydzień</string>
-    <string name="tydzie_przed">Tydzień przed</string>
-    <string name="dzie_przed">Dzień przed</string>
-    <string name="przypisz_u_ytkownik_w">Przypisz użytkowników</string>
-    <string name="dodaj">Dodaj</string>
-    <string name="zatwierd_dane">Zatwierdź dane</string>
-    <string name="tV_calendarLabel">Kalendarz</string>
-    <string name="today">dziś</string>
-    <string name="upcomingDays">najbliższe dni</string>
-    <string name="week">tydzień</string>
-    <string name="month">miesiąc</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="task_groups">Grupy Zadaniowe</string>
-    <string name="task_group_name">Nazwa grupy zadaniowej</string>
-    <string name="task_group_user_list">Członkowie grupy</string>
-    <string name="task_group_user">Członek grupy zadaniowej</string>
-    <string name="leader_mark">Leader mark</string>
-    <string name="remove_user_button_description">Button for remove user from list</string>
-    <string name="message_button_description">Button for type a massage to user</string>
-    <string name="task_group_more_description">Button for open task group details</string>
-    <string name="task_group_user_list_description">Button for open task group user list</string>
-    <string name="task_name">Nazwa taska</string>
-    <string name="assigment">Przypisani:</string>
-    <string name="deadline">Termin:</string>
-    <string name="date_example">01/01/2021</string>
-    <string name="messages">Wiadomości</string>
-    <string name="send_button_description">Button to send a message</string>
-    <string name="type_message">Wpisz wiadomość</string>
-    <string name="chat_name">Name of user/group</string>
-    <string name="personal_message">Wiadomości prywatne</string>
-    <string name="group_message">Wiadomości grupowe</string>
-    <string name="title_activity_main_view">main_view</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <!-- GLOBAL -->
+    <string name="projectName">IO-app</string>
+    <string name="appName">Komunikator dla biznesu</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="zbli_aj_ce_si_terminy_zada">Zbliżające się terminy zadań:</string>
-    <string name="witaj_z_powrotem">Witaj z powrotem!</string>
+
+    <!-- HOME WINDOW -->
+    <string name="upcomingTasks">Zbliżające się terminy zadań:</string>
+    <string name="welcomeText">Witaj z powrotem!</string>
     <string name="hour">TextView</string>
     <string name="date">TextView</string>
+
+    <!-- LOGIN/REGISTER -->
+    <string name="loginHeader">Zaloguj się</string>
+    <string name="email">Email</string>
+    <string name="password">Hasło</string>
+    <string name="name">Imię</string>
+    <string name="surname">Nazwisko</string>
+    <string name="logIn">Zaloguj</string>
+    <string name="register">Zarejestruj się</string>
+    <string name="loginImageDescription">Ikona ekranu logowania</string>
+    <string name="continueText">Kontynuuj</string>
+    <string name="backToLogin">Powrót do ekranu logowania</string>
+
+    <!-- CALENDAR -->
+    <string name="week">Tydzień</string>
+    <string name="calendar">Kalendarz</string>
+    <string name="today">Dziś</string>
+    <string name="upcomingDays">Najbliższe dni</string>
+    <string name="month">Miesiąc</string>
+
+    <!-- TASKS AND GROUPS -->
+    <string name="groupHeader">Grupy zadaniowe</string>
+    <string name="addTask">Dodaj zadanie</string>
+    <string name="typeGroupName">Podaj nazwę grupy</string>
+    <string name="typeTaskName">Podaj nazwę zadania</string>
+    <string name="typeTaskDescription">Podaj opis zadania</string>
+    <string name="typeDate">Podaj datę</string>
+    <string name="typeTime">Podaj godzinę</string>
+    <string name="reminder">Przypomnienia</string>
+    <string name="typeReminderName">Podaj nazwę przypomnienia</string>
+    <string name="weekBefore">Tydzień przed</string>
+    <string name="dayBefore">Dzień przed</string>
+    <string name="assignUser">Przypisz użytkowników</string>
+    <string name="add">Dodaj</string>
+    <string name="confirm">Zatwierdź</string>
+    <string name="groupName">Nazwa grupy zadaniowej</string>
+    <string name="groupUserList">Członkowie grupy</string>
+    <string name="leaderMarkDescription">Ikona lidera grupy</string>
+    <string name="removeUserDescription">Usuń użytkownika z grupy</string>
+    <string name="messageDescription">Napisz wiadomość</string>
+    <string name="groupMoreDescription">Zadania grupy</string>
+    <string name="groupUserListDescription">Lista użytkowników grupy</string>
+    <string name="taskName">Nazwa zadania</string>
+    <string name="assigmentUser">Przypisani użytkownicy:</string>
+    <string name="deadline">Termin:</string>
+    <string name="dateExample">01/01/2021</string>
+
+    <!-- USER PROFILE -->
+    <string name="statusAvailable">Dostępny</string>
+    <string name="statusUnavailable">Niedostępny</string>
+    <string name="statusAway">Zaraz wracam</string>
+    <string name="user">Użytkownik</string>
+    <string name="userImageDescription">Opis zdjęcia użytkownika</string>
+
+    <!-- CHAT -->
+    <string name="messages">Wiadomości</string>
+    <string name="sendDescription">Wyślij wiadomość</string>
+    <string name="typeMessage">Wpisz wiadomość</string>
+    <string name="chatName">Nazwa chatu</string>
+    <string name="personalMessage">Wiadomości prywatne</string>
+    <string name="groupMessage">Wiadomości grupowe</string>
+    <string name="messageAuthor">Autor wiadomości</string>
+    <string name="messageContent">Treść wiadomości</string>
 </resources>

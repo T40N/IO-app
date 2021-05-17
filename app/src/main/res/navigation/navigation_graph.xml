@@ -6,22 +6,22 @@
     app:startDestination="@id/dayView">
     <fragment
         android:id="@+id/dayView"
-        android:name="com.example.io_app.DayView"
+        android:name="com.example.io_app.CalendarDay"
         android:label="fragment_day_view"
-        tools:layout="@layout/fragment_day_view" />
+        tools:layout="@layout/calendar_day_view" />
     <fragment
         android:id="@+id/upcomingDaysView"
-        android:name="com.example.io_app.upcomingDaysView"
+        android:name="com.example.io_app.CalendarUpcomingDays"
         android:label="fragment_upcoming_days_view"
-        tools:layout="@layout/fragment_upcoming_days_view" />
+        tools:layout="@layout/calendar_upcoming_days_view" />
     <fragment
         android:id="@+id/weekView"
-        android:name="com.example.io_app.weekView"
+        android:name="com.example.io_app.CalendarWeek"
         android:label="fragment_week_view"
-        tools:layout="@layout/fragment_week_view" />
+        tools:layout="@layout/calendar_week_view" />
     <fragment
         android:id="@+id/monthView"
-        android:name="com.example.io_app.monthView"
+        android:name="com.example.io_app.CalendarMonth"
         android:label="fragment_month_view"
-        tools:layout="@layout/fragment_month_view" />
+        tools:layout="@layout/calendar_month_view" />
 </navigation>
