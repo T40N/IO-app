@@ -11,6 +11,10 @@
     <string name="hour">TextView</string>
     <string name="date">TextView</string>
 
+    <!-- SEEK WINDOW -->
+    <string name="wyszukaj">Wyszukaj</string>
+    <string name="menu">menu</string>
+
     <!-- LOGIN/REGISTER -->
     <string name="loginHeader">Zaloguj się</string>
     <string name="email">Email</string>
@@ -73,4 +77,5 @@
     <string name="groupMessage">Wiadomości grupowe</string>
     <string name="messageAuthor">Autor wiadomości</string>
     <string name="messageContent">Treść wiadomości</string>
+
 </resources>
