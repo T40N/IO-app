@@ -104,4 +104,5 @@
         <item name="android:fontFamily">@font/quicksand_bold</item>
         <item name="android:textColor">@color/gray</item>
     </style>
-</resources>
+    </resources>
+

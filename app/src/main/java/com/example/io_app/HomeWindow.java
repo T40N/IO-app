@@ -26,9 +26,9 @@ public class HomeWindow extends AppCompatActivity {
         dateTextV = findViewById(R.id.dateTextV);
         welcomeTextV = findViewById(R.id.welcomeTextV);
 
-       Date currentTime = Calendar.getInstance().getTime();        //ANDROID VEWRSION???????
+       Date currentTime = Calendar.getInstance().getTime();
         formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(currentTime);
-        formattedHour = DateFormat.getDateInstance(DateFormat.SHORT).format(currentTime);
+        formattedHour = DateFormat.getTimeInstance(DateFormat.SHORT).format(currentTime);
         splitDate = formattedDate.split(",");
 
         dateTextV.setText(splitDate[0] + ", " + splitDate[1]);

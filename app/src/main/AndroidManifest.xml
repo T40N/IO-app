@@ -9,12 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IOapp">
-        <activity android:name=".GroupTasks"></activity>
+        <activity android:name=".SeekWindow"
+            android:exported="true">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GroupTasks" />
         <activity android:name=".GroupUserList" />
         <activity android:name=".GroupList" />
-        <activity android:name=".ChatList"/>
+        <activity android:name=".ChatList" />
         <activity android:name=".Chat" />
-        <activity android:name=".HomeWindow"
+        <activity
+            android:name=".HomeWindow"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
