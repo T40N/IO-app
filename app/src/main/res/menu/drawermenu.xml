@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_view"
+        android:title="@string/mainString"
+        android:icon="@drawable/ic_baseline_home_24" />
+
+    <item
+        android:id="@+id/search"
+        android:title="@string/wyszukaj"
+        android:icon="@drawable/ic_baseline_search_24" />
+
+    <item
+        android:id="@+id/calendar"
+        android:title="@string/kalendarz"
+        android:icon="@drawable/ic_baseline_calendar_today_24" />
+
+    <item
+        android:id="@+id/groups"
+        android:title="@string/grupy"
+        android:icon="@drawable/ic_baseline_group_24" />
+
+    <item
+        android:id="@+id/tasks"
+        android:title="@string/zadania"
+        android:icon="@drawable/ic_baseline_check_box_24" />
+
+    <item
+        android:id="@+id/chat"
+        android:title="@string/chat"
+        android:icon="@drawable/ic_baseline_chat_24" />
+
+    <item
+        android:id="@+id/options"
+        android:title="@string/OptionsString"
+        android:icon="@drawable/ic_baseline_settings_24" />
+
+</menu>
