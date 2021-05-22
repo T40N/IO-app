@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IOapp">
+
         <activity android:name=".SeekWindow"
             android:exported="true">
 
@@ -16,11 +17,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".GroupTasks" />
+
+
         <activity android:name=".GroupUserList" />
-        <activity android:name=".GroupList" />
+
+
+        <activity android:name=".GroupList" android:exported="true">
+
+        <intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+
+
+
         <activity android:name=".ChatList" />
+
+
         <activity android:name=".Chat" />
+
+
         <activity
             android:name=".HomeWindow"
             android:exported="true">
@@ -28,8 +48,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".AddTask" />
+
+
         <activity android:name=".UserProfile" />
+
+
         <activity android:name=".Calendar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,8 +63,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".Register" />
+
+
         <activity android:name=".Login" />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
