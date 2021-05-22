@@ -12,7 +12,6 @@
     <string name="date">TextView</string>
 
     <!-- SEEK WINDOW -->
-    <string name="wyszukaj">Wyszukaj</string>
     <string name="menu">menu</string>
 
     <!-- LOGIN/REGISTER -->
@@ -77,5 +76,12 @@
     <string name="groupMessage">Wiadomości grupowe</string>
     <string name="messageAuthor">Autor wiadomości</string>
     <string name="messageContent">Treść wiadomości</string>
+    <string name="mainString" />
+    <string name="OptionsString" />
+    <string name="wyszukaj">Wyszukaj</string>
+    <string name="kalendarz">Kalendarz</string>
+    <string name="grupy">Grupy</string>
+    <string name="zadania">Zadania</string>
+    <string name="chat">Chat</string>
 
 </resources>
