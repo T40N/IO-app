@@ -14,12 +14,14 @@
       },
       "oauth_client": [
         {
+
           "client_id": "1089239665375-ru1ggq430q0q95gr77u8nmntehl2oefi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
+
           "current_key": "AIzaSyCVfRJ4kd65bVQtfR0VQB_rU6QOub2s1J4"
         }
       ],
@@ -27,6 +29,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+
               "client_id": "1089239665375-ru1ggq430q0q95gr77u8nmntehl2oefi.apps.googleusercontent.com",
               "client_type": 3
             }
