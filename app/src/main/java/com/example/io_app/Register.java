@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.TimeUnit;
+
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
@@ -109,7 +111,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            UserObject user = new UserObject(nameStr, surnameStr, emailStr, passwordStr);
+                            UserObject user = new UserObject(nameStr,surnameStr,emailStr,passwordStr);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -118,6 +120,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                                     if(task.isSuccessful()){
                                         Toast.makeText(Register.this, "Użtkownik został zarejestrowany!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
+                                        startActivity(new Intent(Register.this, Login.class));
                                     }else{
                                         Toast.makeText(Register.this, "Nie udało się zarejestrować! Spróbuj jeszcze raz!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
