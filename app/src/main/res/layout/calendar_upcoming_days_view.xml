@@ -7,7 +7,7 @@
     tools:context=".CalendarUpcomingDays">
 
     <com.alamkanak.weekview.WeekView
-        android:id="@+id/weekView"
+        android:id="@+id/threeDaysView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:columnGap="@dimen/columnGap"
@@ -20,5 +20,8 @@
         app:hourHeight="60dp"
         app:noOfVisibleDays="3"
         app:textSize="@dimen/calendarTextSize"
-        app:todayHeaderTextColor="@color/accentBlue" />
+        app:todayHeaderTextColor="@color/accentBlue"
+        app:showNowLine="true"
+        app:nowLineColor="@color/gray"
+        app:nowLineThickness="2dp"/>
 </FrameLayout>

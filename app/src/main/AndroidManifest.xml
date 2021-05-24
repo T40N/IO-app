@@ -17,12 +17,9 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".GroupTasks" />
 
-
         <activity android:name=".GroupUserList" />
-
 
         <activity android:name=".GroupList" android:exported="true">
 
@@ -31,14 +28,9 @@
         </intent-filter>
         </activity>
 
-
-
-
         <activity android:name=".ChatList" />
 
-
         <activity android:name=".Chat" />
-
 
         <activity
             android:name=".HomeWindow"
@@ -51,10 +43,12 @@
 
         <activity android:name=".AddTask" />
 
-
         <activity android:name=".UserProfile" />
-        <activity android:name=".Calendar" />
+
+        <activity android:name=".Calendar"/>
+
         <activity android:name=".Register" />
+
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,8 +57,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
