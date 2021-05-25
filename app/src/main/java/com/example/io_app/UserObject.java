@@ -5,7 +5,9 @@ public class UserObject {
     private String name, surname, email, password;
     //private int access;
 
-    public UserObject(){}
+    public UserObject(){
+
+    }
 
     public UserObject(String name, String surname, String email, String password){
         this.name = name;
@@ -36,5 +38,17 @@ public class UserObject {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

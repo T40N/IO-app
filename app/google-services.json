@@ -1,7 +1,7 @@
 {
   "project_info": {
-
     "project_number": "1089239665375",
+    "firebase_url": "https://io-project-5d28e-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "io-project-5d28e",
     "storage_bucket": "io-project-5d28e.appspot.com"
   },
@@ -15,14 +15,12 @@
       },
       "oauth_client": [
         {
-
           "client_id": "1089239665375-ru1ggq430q0q95gr77u8nmntehl2oefi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-
           "current_key": "AIzaSyCVfRJ4kd65bVQtfR0VQB_rU6QOub2s1J4"
         }
       ],
@@ -30,7 +28,6 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-
               "client_id": "1089239665375-ru1ggq430q0q95gr77u8nmntehl2oefi.apps.googleusercontent.com",
               "client_type": 3
             }
