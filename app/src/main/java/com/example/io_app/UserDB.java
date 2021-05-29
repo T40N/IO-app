@@ -1,18 +1,38 @@
 package com.example.io_app;
 
 public class UserDB {
-    private String name, surname, email, phoneNumber, group, status, userType;
+    private String name;
+    private String surname;
+    private String email;
+    private UserDB.userType userType;
+    private String password;
+    private boolean status;
 
 
-    public UserDB(String name, String surname, String email, String phoneNumber, String group, String status, String userType) {
+    public enum userType{
+        standardUser,
+        teamLeader,
+        administrator,
+    }
+
+    public UserDB(String name, String surname, String email, String password, userType userType) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.group = group;
-        this.status = status;
+        this.password = password;
         this.userType = userType;
+        this.status = false;
     }
+    public UserDB(String name, String surname, String email, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.status = false;
+        this.userType = userType.standardUser;
+    }
+
+    public UserDB() {}
 
 
     public String getName() {
@@ -39,38 +59,28 @@ public class UserDB {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
-    public String getUserType() {
+    public userType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(userType userType) {
         this.userType = userType;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 }
