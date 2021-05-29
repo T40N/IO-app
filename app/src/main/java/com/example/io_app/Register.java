@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -114,13 +116,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            UserObject user = new UserObject(nameStr,surnameStr,emailStr,passwordStr);
+                            UserDB user = new UserDB(nameStr,surnameStr,emailStr,passwordStr);
                             dbRef.push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(Register.this, "Użtkownik został zarejestrowany!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Register.this, "Użytkownik został zarejestrowany!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
+                                        FirebaseUser FBuser = FirebaseAuth.getInstance().getCurrentUser();
+                                        UserProfileChangeRequest userUpdate = new UserProfileChangeRequest.Builder().setDisplayName(user.getName() + " " + user.getSurname()).build();
+                                        FBuser.updateProfile(userUpdate);
                                         startActivity(new Intent(Register.this, Login.class));
                                     }else{
                                         Toast.makeText(Register.this, "Nie udało się zarejestrować! Spróbuj jeszcze raz!", Toast.LENGTH_LONG).show();
