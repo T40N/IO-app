@@ -20,30 +20,17 @@ import java.util.Set;
 
 public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyViewHolder> {
     int row_index = -1;
-    UserDB user;
     Context context;
     ArrayList<UserDB> list;
-    ArrayList<Integer> usersId;
     RecyclerViewClickListener listener;
-    HashSet<String> set = new HashSet<>();
-
-
+    Set<UserDB> set = new HashSet<UserDB>() ;
 
     public AddGroupAdapter(Context context, ArrayList<UserDB> list, RecyclerViewClickListener listener) {
         this.context = context;
         this.list = list;
         this.listener = listener;
-        //list = new ArrayList<>();
-      //  usersId = new ArrayList<>();
     }
 
-    public HashSet<String> getSet() {
-        return set;
-    }
-
-    public UserDB getUser() {
-        return user;
-    }
 
     @NonNull
     @NotNull
@@ -65,17 +52,20 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 row_index=position;
-
-                set.add(user.getId());
-                System.out.println(position);
-                System.out.println(row_index);
                 notifyDataSetChanged();
+                set.add(user);
+                Iterator<UserDB> iterator = set.iterator();
+                UserDB n;
+                //As expected, the node with 1, 2 only show up once here when printing out all the nodes in the set
+                while(iterator.hasNext()) {
+                    n = iterator.next();
+                    System.out.println(n.getName() + " " + n.getSurname());
+                }
             }
         });
 
-        if (row_index == position) {                          //DO POPRAWY ODZNACZANIE!!!!!!!
+        if (row_index==position) {                          //DO POPRAWY ODZNACZANIE!!!!!!!
             holder.linearLayout.setBackgroundColor(Color.RED);
         }
 

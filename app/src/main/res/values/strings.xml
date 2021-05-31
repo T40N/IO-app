@@ -62,12 +62,9 @@
 
 <<<<<<< HEAD
     <!-- ADD GROUP -->
-    <string name="labelTview">Podaj nazwę grupy</string>
-    <string name="nextAddUsers">Dalej</string>
+    <string name="labelTview">Tworzenie grupy zadaniowej</string>
+    <string name="addUsers_group">Dodaj użytkowników</string>
     <string name="userChooseTestV">Wybierz użytkowników</string>
-    <string name="leaderChooseTestV">Wybierz lidera grupy</string>
-    <string name="backToAdd">Wybrano</string>
-    <string name="create">Utwórz grupę</string>
 
 
 =======

@@ -117,7 +117,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
 <<<<<<< HEAD
+<<<<<<< HEAD
                             UserDB user = new UserDB(mAuth.getUid(),nameStr,surnameStr,emailStr,"",false,"administrator");
+=======
+                            UserObject user = new UserObject(nameStr,surnameStr,emailStr,passwordStr);
+>>>>>>> parent of 94818ab (Added creating groups)
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -8,24 +8,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IOapp">
+<<<<<<< HEAD
 
 <<<<<<< HEAD
         <activity
             android:name=".AddGroupLeader"
             android:exported="true">
+=======
+        <activity android:name=".AddGroupUserList">android:exported="true">
+>>>>>>> parent of 94818ab (Added creating groups)
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter></activity>
-
-
-        <activity android:name=".AddGroupUserList"
-            android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
         <activity
             android:name=".AddGroup"
             android:exported="true">
@@ -33,8 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".SeekWindow"
 =======
@@ -46,16 +38,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
 =======
 >>>>>>> Sprint
+=======
+>>>>>>> parent of 94818ab (Added creating groups)
         <activity android:name=".GroupTasks" />
-
         <activity android:name=".GroupUserList" />
+<<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 94818ab (Added creating groups)
         <activity
             android:name=".GroupList"
             android:exported="true">
@@ -63,12 +60,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name=".ChatList" />
-
-
         <activity android:name=".Chat" />
+<<<<<<< HEAD
 
 
 =======
@@ -84,6 +78,8 @@
         <activity android:name=".Chat" />
 
 >>>>>>> Sprint
+=======
+>>>>>>> parent of 94818ab (Added creating groups)
         <activity
             android:name=".HomeWindow"
             android:exported="true">
@@ -91,15 +87,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name=".AddTask" />
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
+=======
+>>>>>>> parent of 94818ab (Added creating groups)
         <activity android:name=".UserProfile" />
-
-
         <activity android:name=".Calendar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -107,20 +102,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity
-            android:name=".Register"
-            android:exported="true">
-        <intent-filter>
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-
-
+        <activity android:name=".Register" />
         <activity android:name=".Login" />
-
-
         <activity android:name=".MainActivity">
 =======
         <activity android:name=".UserProfile" />

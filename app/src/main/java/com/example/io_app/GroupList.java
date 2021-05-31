@@ -24,7 +24,6 @@ public class GroupList extends AppCompatActivity {
     GroupListAdapter groupListAdapter;
     DatabaseReference databaseReference;
     String temp;
-    ArrayList<UserDB> members;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class GroupList extends AppCompatActivity {
                  for (DataSnapshot ds:snapshot.getChildren()){
                      temp = ds.getValue(String.class);
                     // GroupDB data = ds.getValue(GroupDB.class);
-                     GroupDB data = new GroupDB(temp,"Asd",members);
+                     GroupDB data = new GroupDB(temp,"Asd");
 
                      groupDBList.add(data);
                  }
