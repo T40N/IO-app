@@ -29,8 +29,31 @@ public class UserDB implements Parcelable {
         this.email = email;
         this.group = group;
         this.status = status;
-        this.userType = userType;
+
+    public enum userType{
+        standardUser,
+        teamLeader,
+        administrator,
     }
+
+    public UserDB(String name, String surname, String email, String password, userType userType) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.userType = userType;
+        this.status = false;
+    }
+    public UserDB(String name, String surname, String email, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.status = false;
+        this.userType = userType.standardUser;
+    }
+
+    public UserDB() {}
 
 
     public String getName() {
@@ -57,6 +80,7 @@ public class UserDB implements Parcelable {
         this.email = email;
     }
 
+
     public String getGroup() {
         return group;
     }
@@ -69,15 +93,16 @@ public class UserDB implements Parcelable {
         return status;
     }
 
-    public void setStatus(boolean status) {
+
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
-    public String getUserType() {
+    public userType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(userType userType) {
         this.userType = userType;
     }
 
@@ -175,6 +200,14 @@ public class UserDB implements Parcelable {
         public UserDB createFromParcel(Parcel in) {
             return new UserDB(in);
         }
+      
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
         public UserDB[] newArray(int size) {
             return new UserDB[size];

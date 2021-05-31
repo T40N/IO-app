@@ -1,5 +1,6 @@
 package com.example.io_app;
 
+import android.graphics.RectF;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +8,75 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CalendarWeek#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CalendarWeek extends Fragment {
+import com.alamkanak.weekview.MonthLoader;
+import com.alamkanak.weekview.WeekView;
+import com.alamkanak.weekview.WeekViewEvent;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
-    public CalendarWeek() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment weekView.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CalendarWeek newInstance(String param1, String param2) {
-        CalendarWeek fragment = new CalendarWeek();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+public class CalendarWeek extends Fragment implements MonthLoader.MonthChangeListener, WeekView.EventClickListener, WeekView.EmptyViewClickListener{
+    private WeekView weekView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.calendar_week_view, container, false);
+        View view = inflater.inflate(R.layout.calendar_week_view, container, false);
+        weekView = (WeekView) view.findViewById(R.id.weekView);
+        Calendar today = Calendar.getInstance();
+        Calendar lastDay = (Calendar) today.clone();
+        lastDay.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH) + 6);
+
+        weekView.setEmptyViewClickListener(this);
+        weekView.setMonthChangeListener(this);
+
+        weekView.goToHour(today.get(Calendar.HOUR_OF_DAY));
+        weekView.setMinDate(today);
+        weekView.setMaxDate(lastDay);
+        return view;
+    }
+
+    @Nullable
+    @Override
+    public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
+        List <WeekViewEvent> events = new ArrayList<WeekViewEvent>();
+        // creating sample events for showcase purpose
+        Calendar date = Calendar.getInstance();
+        date.set(newYear, newMonth - 1,25,15,0);
+        TaskDB task = new TaskDB("Sample 1","","",date);
+        WeekViewEvent event = task.toWeekViewEvent(0);
+        event.setColor(getResources().getColor(R.color.accentBlue));
+        events.add(event);
+
+        date.set(newYear, newMonth - 1,27,10,0);
+        task = new TaskDB("Sample 2","","",date);
+        event = task.toWeekViewEvent(1);
+        event.setColor(getResources().getColor(R.color.accentBlue));
+        events.add(event);
+
+        date.set(newYear, newMonth - 1,28,12,0);
+        task = new TaskDB("Sample 3","","",date);
+        event = task.toWeekViewEvent(2);
+        event.setColor(getResources().getColor(R.color.accentBlue));
+        events.add(event);
+
+        return events;
+    }
+
+    @Override
+    public void onEmptyViewClicked(@NotNull Calendar calendar) {
+        Toast.makeText(getActivity(), "Brak wydarzeń w tym czasie", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onEventClick(@NotNull WeekViewEvent weekViewEvent, @NotNull RectF rectF) {
+        Toast.makeText(getActivity(), weekViewEvent.getName(), Toast.LENGTH_SHORT).show();
     }
 }
