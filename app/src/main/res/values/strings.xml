@@ -60,6 +60,7 @@
     <string name="deadline">Termin:</string>
     <string name="dateExample">01/01/2021</string>
 
+<<<<<<< HEAD
     <!-- ADD GROUP -->
     <string name="labelTview">Podaj nazwę grupy</string>
     <string name="nextAddUsers">Dalej</string>
@@ -69,6 +70,8 @@
     <string name="create">Utwórz grupę</string>
 
 
+=======
+>>>>>>> Sprint
     <!-- USER PROFILE -->
     <string name="statusAvailable">Dostępny</string>
     <string name="statusUnavailable">Niedostępny</string>
@@ -92,7 +95,5 @@
     <string name="grupy">Grupy</string>
     <string name="zadania">Zadania</string>
     <string name="chat">Chat</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.io_app">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IOapp">
 
+<<<<<<< HEAD
         <activity
             android:name=".AddGroupLeader"
             android:exported="true">
@@ -37,17 +37,25 @@
 
         <activity
             android:name=".SeekWindow"
+=======
+        <activity android:name=".SeekWindow"
+>>>>>>> Sprint
             android:exported="true">
+
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Sprint
         <activity android:name=".GroupTasks" />
 
         <activity android:name=".GroupUserList" />
 
+<<<<<<< HEAD
         <activity
             android:name=".GroupList"
             android:exported="true">
@@ -63,6 +71,19 @@
         <activity android:name=".Chat" />
 
 
+=======
+        <activity android:name=".GroupList" android:exported="true">
+
+        <intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity android:name=".ChatList" />
+
+        <activity android:name=".Chat" />
+
+>>>>>>> Sprint
         <activity
             android:name=".HomeWindow"
             android:exported="true">
@@ -74,6 +95,7 @@
 
         <activity android:name=".AddTask" />
 
+<<<<<<< HEAD
 
         <activity android:name=".UserProfile" />
 
@@ -100,12 +122,23 @@
 
 
         <activity android:name=".MainActivity">
+=======
+        <activity android:name=".UserProfile" />
+
+        <activity android:name=".Calendar" />
+
+        <activity android:name=".Register" />
+
+        <activity android:name=".Login">
+>>>>>>> Sprint
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
