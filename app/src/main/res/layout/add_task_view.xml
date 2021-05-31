@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddTask">
@@ -61,64 +60,22 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_task_describe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_task_add_view" />
 
-    <EditText
-        android:id="@+id/txt_task_describe"
-        android:layout_width="300dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/typeTaskDescription"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title_change" />
-
-    <EditText
-        android:id="@+id/txt_time"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="15dp"
-        android:autofillHints="Podaj godzinę"
-        android:ems="10"
-        android:hint="@string/typeTime"
-        android:inputType="time"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_task_describe" />
-
-    <EditText
-        android:id="@+id/txt_date"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="15dp"
-        android:autofillHints="Podaj datę"
-        android:ems="10"
-        android:hint="@string/typeDate"
-        android:inputType="date"
-        android:textAlignment="viewEnd"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/txt_time"
-        app:layout_constraintTop_toBottomOf="@+id/txt_task_describe" />
 
     <TextView
         android:id="@+id/txt_reminder_view"
+        style="@style/textBig"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="132dp"
         android:text="@string/reminder"
-        style="@style/textBig"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_task_describe" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_change" />
 
     <EditText
         android:id="@+id/txt_reminder"
@@ -139,7 +96,7 @@
         android:layout_height="42dp"
         android:text="@string/weekBefore"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
 
@@ -153,41 +110,55 @@
         app:layout_constraintStart_toEndOf="@+id/btn_week"
         app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
 
-    <EditText
-        android:id="@+id/txt_add_user"
-        android:layout_width="220dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="52dp"
-        android:autofillHints="Przypisz użytkowników"
-        android:ems="10"
-        android:hint="@string/assignUser"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
-
-    <Button
-        android:id="@+id/button3"
-        style="@style/buttonBlueStyle"
-        android:layout_width="80dp"
-        android:layout_height="42dp"
-        android:text="@string/add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/txt_add_user"
-        app:layout_constraintTop_toTopOf="@+id/txt_add_user" />
-
     <Button
         android:id="@+id/btn_add_task"
         android:layout_width="200dp"
         android:layout_height="42dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="536dp"
         android:text="@string/confirm"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_add_user" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_date"
+        android:layout_width="141dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/wybierz_dat"
+        android:textAlignment="gravity"
+        android:textAppearance="@style/textBlue"
+        android:textColor="@color/accentBlue"
+        android:textSize="12sp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_change" />
+
+    <Button
+        android:id="@+id/btn_time"
+        android:layout_width="141dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="56dp"
+        android:text="@string/wybierz_czas"
+        android:textAppearance="@style/textBlue"
+        android:textColor="@color/accentBlue"
+        android:textSize="12sp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_change" />
+
+    <Spinner
+        android:id="@+id/spinner_members"
+        android:layout_width="297dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

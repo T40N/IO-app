@@ -8,13 +8,13 @@ import java.util.Calendar;
 
 public class TaskDB {
     private String taskName;
-    private String userCreator;
+    private String group;
     private String userReceiver;
     private Calendar dateTime;
 
-    public TaskDB(String taskName, String userCreator, String userReceiver, Calendar dateTime) {
+    public TaskDB(String taskName, String group, String userReceiver, Calendar dateTime) {
         this.taskName = taskName;
-        this.userCreator = userCreator;
+        this.group = group;
         this.userReceiver = userReceiver;
         this.dateTime = dateTime;
     }
@@ -42,12 +42,12 @@ public class TaskDB {
         this.taskName = taskName;
     }
 
-    public String getUserCreator() {
-        return userCreator;
+    public String getGroup() {
+        return group;
     }
 
-    public void setUserCreator(String userCreator) {
-        this.userCreator = userCreator;
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public String getUserReceiver() {

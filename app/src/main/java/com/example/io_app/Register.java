@@ -116,7 +116,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            UserDB user = new UserDB(nameStr,surnameStr,emailStr,passwordStr);
+                            UserDB user = new UserDB(nameStr,surnameStr,emailStr);
                             dbRef.push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<Void> task) {

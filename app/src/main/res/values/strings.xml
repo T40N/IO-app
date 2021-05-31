@@ -83,5 +83,7 @@
     <string name="grupy">Grupy</string>
     <string name="zadania">Zadania</string>
     <string name="chat">Chat</string>
+    <string name="wybierz_dat">Wybierz datę</string>
+    <string name="wybierz_czas">Wybierz czas</string>
 
 </resources>

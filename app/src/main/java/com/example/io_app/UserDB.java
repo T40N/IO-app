@@ -4,9 +4,26 @@ public class UserDB {
     private String name;
     private String surname;
     private String email;
+    private String id;
+    private String group;
     private UserDB.userType userType;
-    private String password;
     private boolean status;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
 
 
     public enum userType{
@@ -15,19 +32,18 @@ public class UserDB {
         administrator,
     }
 
-    public UserDB(String name, String surname, String email, String password, userType userType) {
+    public UserDB(String name, String surname, String email, userType userType) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.password = password;
+
         this.userType = userType;
         this.status = false;
     }
-    public UserDB(String name, String surname, String email, String password) {
+    public UserDB(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.password = password;
         this.status = false;
         this.userType = userType.standardUser;
     }
@@ -75,12 +91,5 @@ public class UserDB {
         this.userType = userType;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }
