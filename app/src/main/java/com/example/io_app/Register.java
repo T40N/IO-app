@@ -16,9 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +25,6 @@ import java.util.concurrent.TimeUnit;
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
-    private DatabaseReference dbRef;
     private EditText email, name, surname, password;
     private Button accept, login;
     private ProgressBar progressBar;
@@ -39,7 +35,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.register_view);
 
         mAuth = FirebaseAuth.getInstance();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         accept = (Button) findViewById(R.id.register_accept_btn_ID);
         accept.setOnClickListener(this);
@@ -116,20 +111,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-
-
-
-                            UserDB user = new UserDB(nameStr,surnameStr,emailStr,passwordStr);
-                            dbRef.push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-
+                            UserDB user = new UserDB(mAuth.getUid(),nameStr,surnameStr,emailStr,"",false,"administrator");
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(Register.this, "Użytkownik został zarejestrowany!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Register.this, "Użtkownik został zarejestrowany!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
-                                        FirebaseUser FBuser = FirebaseAuth.getInstance().getCurrentUser();
-                                        UserProfileChangeRequest userUpdate = new UserProfileChangeRequest.Builder().setDisplayName(user.getName() + " " + user.getSurname()).build();
-                                        FBuser.updateProfile(userUpdate);
                                         startActivity(new Intent(Register.this, Login.class));
                                     }else{
                                         Toast.makeText(Register.this, "Nie udało się zarejestrować! Spróbuj jeszcze raz!", Toast.LENGTH_LONG).show();
