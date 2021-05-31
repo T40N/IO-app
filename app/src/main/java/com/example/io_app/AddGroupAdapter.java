@@ -25,7 +25,7 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
     ArrayList<UserDB> list;
     ArrayList<Integer> usersId;
     RecyclerViewClickListener listener;
-    HashSet<String> set = new HashSet<>();
+    HashSet<UserDB> set = new HashSet<>();
 
 
 
@@ -37,7 +37,7 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
       //  usersId = new ArrayList<>();
     }
 
-    public HashSet<String> getSet() {
+    public HashSet<UserDB> getSet() {
         return set;
     }
 
@@ -67,10 +67,7 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
             public void onClick(View view) {
 
                 row_index=position;
-
-                
-                System.out.println(position);
-                System.out.println(row_index);
+                set.add(user);
                 notifyDataSetChanged();
             }
         });

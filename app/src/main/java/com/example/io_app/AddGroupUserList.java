@@ -43,13 +43,6 @@ public class AddGroupUserList extends AppCompatActivity {
         ref = FirebaseDatabase.getInstance().getReference().child("Users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-       // mem1 = new UserDB("Adam", "Saadam","1kasdrew@oppl","",true,"administrator");
-      //  mem2 = new UserDB("Piotr", "Kostka","a3aafd3@oppl","",true,"administrator");
-       // mem3 = new UserDB("Bartosz", "Góra","12231ad32gg4@oppl","",true,"administrator");
-
-      //  ref.child(mem2.getEmail()).setValue(mem2);
-        //ref.child(mem3.getEmail()).setValue(mem3);
-
 
         setOnClickListener();
 
@@ -71,7 +64,7 @@ public class AddGroupUserList extends AppCompatActivity {
                 groupName = data.getString("GROUP_NAME");
 
                 Intent intent = new Intent(getApplicationContext(),AddGroupLeader.class);
-                ArrayList<String> addedUsersList = new ArrayList<String>(adapter.getSet());
+                ArrayList<UserDB> addedUsersList = new ArrayList<UserDB>(adapter.getSet());
 
                 intent.putExtra("ADDED_USERS_LIST", addedUsersList);
                 intent.putExtra("GROUP_NAME", groupName);
@@ -90,10 +83,6 @@ public class AddGroupUserList extends AppCompatActivity {
 
                 }
                  adapter.notifyDataSetChanged();
-                //String s = ref.push().getKey();
-               // System.out.println(s);
-
-
             }
 
             @Override
