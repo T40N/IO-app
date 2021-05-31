@@ -72,7 +72,7 @@
     <string name="sendDescription">Wyślij wiadomość</string>
     <string name="typeMessage">Wpisz wiadomość</string>
     <string name="chatName">Nazwa chatu</string>
-    <string name="personalMessage">Wiadomości prywatne</string>
+    <string name="personalMessage">Lista użytkowników</string>
     <string name="groupMessage">Wiadomości grupowe</string>
     <string name="messageAuthor">Autor wiadomości</string>
     <string name="messageContent">Treść wiadomości</string>
