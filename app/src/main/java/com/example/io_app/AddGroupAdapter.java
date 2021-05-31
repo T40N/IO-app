@@ -68,7 +68,7 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
 
                 row_index=position;
 
-                set.add(user.getId());
+                
                 System.out.println(position);
                 System.out.println(row_index);
                 notifyDataSetChanged();

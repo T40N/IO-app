@@ -116,15 +116,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-<<<<<<< HEAD
-                            UserDB user = new UserDB(mAuth.getUid(),nameStr,surnameStr,emailStr,"",false,"administrator");
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-=======
+
+
+
                             UserDB user = new UserDB(nameStr,surnameStr,emailStr,passwordStr);
                             dbRef.push().setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
->>>>>>> Sprint
+
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                     if(task.isSuccessful()){
