@@ -6,4 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".AddGroupLeader">
 
+    <Button
+        android:id="@+id/createGroupBtn"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style = "@style/buttonBlueStyle"/>
+
+    <TextView
+        android:id="@+id/leaderChooseTextV"
+        style="@style/textMedium"
+        android:layout_width="181dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/leaderChooseTestV"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userListRecycleView2"
+        android:layout_width="358dp"
+        android:layout_height="622dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaderChooseTextV" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

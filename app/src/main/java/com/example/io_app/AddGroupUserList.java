@@ -1,7 +1,6 @@
 package com.example.io_app;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,10 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
 public class AddGroupUserList extends AppCompatActivity {
 
@@ -31,6 +27,9 @@ public class AddGroupUserList extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     DatabaseReference ref;
     ArrayList<UserDB> list;
+    ArrayList<String> usersId;
+    Button next2Btn;
+    String groupName;
 
     AddGroupAdapter.RecyclerViewClickListener listener;
     UserDB mem1,mem2,mem3;
@@ -44,21 +43,41 @@ public class AddGroupUserList extends AppCompatActivity {
         ref = FirebaseDatabase.getInstance().getReference().child("Users");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       // mem1 = new UserDB("Adam", "Saadam","1kasdrew@oppl","",true,"administrator");
+      //  mem2 = new UserDB("Piotr", "Kostka","a3aafd3@oppl","",true,"administrator");
+       // mem3 = new UserDB("Bartosz", "Góra","12231ad32gg4@oppl","",true,"administrator");
 
-       /* mem1 = new UserDB("asd","asd","asd","asd","asd","asd","asd");
-        mem3 = new UserDB("asd2","asd","asd","asd","asd","asd","asd");
-        mem2 = new UserDB("asd3","asd","asd","asd","asd","asd","asd");*/
+      //  ref.child(mem2.getEmail()).setValue(mem2);
+        //ref.child(mem3.getEmail()).setValue(mem3);
 
-      /*  ref.push().setValue(mem1);
-        ref.push().setValue(mem2);
-        ref.push().setValue(mem3);*/
+
         setOnClickListener();
+
         list = new ArrayList<>();
 
 
 
         adapter = new AddGroupAdapter(this,list, listener);
         recyclerView.setAdapter(adapter);
+
+
+        next2Btn = findViewById(R.id.next2Btn);
+        next2Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle data = getIntent().getExtras();
+
+                groupName = data.getString("GROUP_NAME");
+
+                Intent intent = new Intent(getApplicationContext(),AddGroupLeader.class);
+                ArrayList<String> addedUsersList = new ArrayList<String>(adapter.getSet());
+
+                intent.putExtra("ADDED_USERS_LIST", addedUsersList);
+                intent.putExtra("GROUP_NAME", groupName);
+                startActivity(intent);
+            }
+        });
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -71,6 +90,8 @@ public class AddGroupUserList extends AppCompatActivity {
 
                 }
                  adapter.notifyDataSetChanged();
+                //String s = ref.push().getKey();
+               // System.out.println(s);
 
 
             }

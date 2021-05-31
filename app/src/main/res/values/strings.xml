@@ -61,9 +61,12 @@
     <string name="dateExample">01/01/2021</string>
 
     <!-- ADD GROUP -->
-    <string name="labelTview">Tworzenie grupy zadaniowej</string>
-    <string name="addUsers_group">Dodaj użytkowników</string>
+    <string name="labelTview">Podaj nazwę grupy</string>
+    <string name="nextAddUsers">Dalej</string>
     <string name="userChooseTestV">Wybierz użytkowników</string>
+    <string name="leaderChooseTestV">Wybierz lidera grupy</string>
+    <string name="backToAdd">Wybrano</string>
+    <string name="create">Utwórz grupę</string>
 
 
     <!-- USER PROFILE -->
