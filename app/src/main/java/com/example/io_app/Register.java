@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
@@ -120,6 +122,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                                     if(task.isSuccessful()){
                                         Toast.makeText(Register.this, "Użtkownik został zarejestrowany!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
+                                        FirebaseUser fbUser = mAuth.getCurrentUser();
+                                        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder().setDisplayName(user.getName() + " " + user.getSurname()).build();
+                                        fbUser.updateProfile(profileUpdate);
                                         startActivity(new Intent(Register.this, Login.class));
                                     }else{
                                         Toast.makeText(Register.this, "Nie udało się zarejestrować! Spróbuj jeszcze raz!", Toast.LENGTH_LONG).show();
