@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.content.Context;
-
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,13 +15,8 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-
 
 import com.example.io_app.adapter.UserAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,20 +25,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChatList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
 
     List<UserDB> usersList;
     RecyclerView recyclerView;
@@ -71,7 +59,6 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
     private void readUsers() {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-
 
         drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
         navigationView = findViewById(R.id.navigation_view);

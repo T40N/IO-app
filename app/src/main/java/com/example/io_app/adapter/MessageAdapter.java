@@ -10,8 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.io_app.MessageDB;
 import com.example.io_app.R;
+import com.example.io_app.UserDB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,12 +30,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     private List<MessageDB> mMessage;
     private Context mContext;
+    private String otherUser;
 
     FirebaseUser fuser;
 
-    public MessageAdapter(Context mContext, List<MessageDB> mMessage) {
+    public MessageAdapter(Context mContext, List<MessageDB> mMessage, String otherUser) {
         this.mContext = mContext;
         this.mMessage = mMessage;
+        this.otherUser = otherUser;
     }
 
     @NotNull
@@ -48,9 +56,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public void onBindViewHolder(@NotNull MessageAdapter.ViewHolder holder, int position) {
         MessageDB messageDB = mMessage.get(position);
 
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(messageDB.getSender());
+
         holder.message.setText(messageDB.getMessage());
-
-
+        holder.author.setText(messageDB.getSender().equals(fuser.getUid()) ? "Ja:" : otherUser);
     }
 
     @Override
@@ -61,11 +70,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView message;
+        public TextView author;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             message = itemView.findViewById(R.id.messageText);
+            author = itemView.findViewById(R.id.messageAuthor);
         }
     }
 
@@ -73,7 +84,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public int getItemViewType(int position) {
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (mMessage.get(position).getUserSend().equals(fuser.getUid()))
+        if (mMessage.get(position).getSender().equals(fuser.getUid()))
             return MSG_TYPE_OUT;
         else
             return MSG_TYPE_IN;
