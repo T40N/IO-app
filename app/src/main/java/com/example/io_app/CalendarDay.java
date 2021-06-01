@@ -46,36 +46,7 @@ private WeekView weekView;
     @Nullable
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        List <WeekViewEvent> events = new ArrayList<WeekViewEvent>();
-        // creating sample events for showcase purpose
-        Calendar date = Calendar.getInstance();
-        date.set(Calendar.HOUR_OF_DAY, 9);
-        date.set(Calendar.MINUTE, 0);
-        date.set(Calendar.MONTH, newMonth - 1);
-        date.set(Calendar.YEAR, newYear);
-        TaskDB task = new TaskDB("Sample 1","","",date);
-        WeekViewEvent event = task.toWeekViewEvent(0);
-        event.setColor(getResources().getColor(R.color.accentBlue));
-        events.add(event);
-
-        date.set(Calendar.HOUR_OF_DAY, 9);
-        date.set(Calendar.MINUTE, 0);
-        date.set(Calendar.MONTH, newMonth - 1);
-        date.set(Calendar.YEAR, newYear);
-        task = new TaskDB("Sample 2","","",date);
-        event = task.toWeekViewEvent(1);
-        event.setColor(getResources().getColor(R.color.accentBlue));
-        events.add(event);
-
-        date.set(Calendar.HOUR_OF_DAY, 13);
-        date.set(Calendar.MINUTE, 0);
-        date.set(Calendar.MONTH, newMonth - 1);
-        date.set(Calendar.YEAR, newYear);
-        task = new TaskDB("Sample 3","","",date);
-        event = task.toWeekViewEvent(2);
-        event.setColor(getResources().getColor(R.color.accentBlue));
-        events.add(event);
-
+        List <WeekViewEvent> events = (List<WeekViewEvent>) WeekViewLoader.loadEvents(newYear,newMonth);
         return events;
     }
 

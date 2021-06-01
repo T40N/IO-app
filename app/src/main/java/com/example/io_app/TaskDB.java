@@ -19,11 +19,13 @@ public class TaskDB {
         this.dateTime = dateTime;
     }
 
-    public WeekViewEvent toWeekViewEvent(int i){
+    public TaskDB () {}
+
+    public WeekViewEvent toWeekViewEvent(){
         Calendar startTime = (Calendar) this.dateTime.clone();
         Calendar endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY,startTime.get(Calendar.HOUR_OF_DAY) + 1);
-        return new WeekViewEvent(String.valueOf(i), this.taskName,startTime,endTime);
+        return new WeekViewEvent(this.taskName, this.taskName,startTime,endTime);
     }
 
     public Calendar getDateTime() {

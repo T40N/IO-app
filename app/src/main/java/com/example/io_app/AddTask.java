@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ import java.util.Locale;
 public class AddTask extends AppCompatActivity implements View.OnClickListener {
     String groupName;
     EditText taskName;
+    TextView groupNameLabel;
     Button btnDate;
     Button btnTime;
     Button btnAccept;
@@ -46,9 +48,12 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        groupName = "Dodaj grupe";
         setContentView(R.layout.add_task_view);
+        groupName = "crash";    //tu bedzie pobierana wartosc z poprzedniego activity
+
         retrieveMembers();
+        groupNameLabel = findViewById(R.id.tV_groupName);
+        groupNameLabel.setText(groupName);
         taskName = findViewById(R.id.txt_title_change);
         spinner = findViewById(R.id.spinner_members);
         CustomSpinnerAdapter customSpinnerAdapter = new CustomSpinnerAdapter(this,R.layout.custom_spinner_adapter,retrieveMembers());
@@ -72,10 +77,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener {
                 getTime();
                 break;
             case R.id.btn_add_task:
-                String taskTile = taskName.getText().toString();
-                UserDB member = (UserDB) spinner.getSelectedItem();
-                Calendar taskDate = new GregorianCalendar(taskYear,taskMonth,taskDay,taskHour,taskMinute);
-                TaskDB newTask = new TaskDB(taskTile,groupName,member.getName(),taskDate);
+                addTask();
                 break;
         }
     }
@@ -117,7 +119,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<UserDB> retrieveMembers(){
         ArrayList<UserDB> memberArray = new ArrayList<>();
-        dbRef = FirebaseDatabase.getInstance().getReference("Groups/Dodaj grupe/members");
+        dbRef = FirebaseDatabase.getInstance().getReference("Groups/" + groupName + "/members");
         dbRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull @NotNull DataSnapshot snapshot, @Nullable @org.jetbrains.annotations.Nullable String previousChildName) {
@@ -140,5 +142,16 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener {
             }
         });
         return memberArray;
+    }
+
+    private void addTask(){
+        String taskTile = taskName.getText().toString();
+        UserDB member = (UserDB) spinner.getSelectedItem();
+        Calendar taskDate = new GregorianCalendar(taskYear,taskMonth,taskDay,taskHour,taskMinute);
+        TaskDB newTask = new TaskDB(taskTile,groupName,member.getId(),taskDate);
+
+        dbRef = FirebaseDatabase.getInstance().getReference("Users/" + member.getId());
+        dbRef.child("Tasks").push().setValue(newTask);
+        Toast.makeText(this, "Dodano nowe zadanie", Toast.LENGTH_SHORT).show();
     }
 }

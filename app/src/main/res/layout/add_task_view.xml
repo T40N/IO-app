@@ -6,49 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".AddTask">
 
-    <TextView
-        android:id="@+id/txt_group_name"
-        android:layout_width="197dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/quicksand_bold"
-        android:text="@string/groupHeader"
-        android:textAlignment="viewEnd"
-        android:textColor="#0a0a0a"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <EditText
-        android:id="@+id/txt_group_change"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:drawableEnd="@android:drawable/ic_menu_my_calendar"
-        android:ems="10"
-        android:hint="@string/typeGroupName"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_group_name" />
 
     <TextView
         android:id="@+id/txt_task_add_view"
         style="@style/textBig"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:layout_marginTop="48dp"
         android:text="@string/addTask"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_group_change" />
+        app:layout_constraintTop_toBottomOf="@+id/tV_groupName" />
 
     <EditText
         android:id="@+id/txt_title_change"
@@ -64,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_task_add_view" />
 
-
+    <!--
     <TextView
         android:id="@+id/txt_reminder_view"
         style="@style/textBig"
@@ -109,17 +79,18 @@
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/btn_week"
         app:layout_constraintTop_toBottomOf="@+id/txt_reminder" />
+                                                                    -->
 
     <Button
         android:id="@+id/btn_add_task"
         android:layout_width="200dp"
         android:layout_height="42dp"
-        android:layout_marginTop="536dp"
+        android:layout_marginTop="24dp"
         android:text="@string/confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_members" />
 
     <Button
         android:id="@+id/btn_date"
@@ -154,11 +125,74 @@
         android:id="@+id/spinner_members"
         android:layout_width="297dp"
         android:layout_height="43dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="52dp"
+        android:background="@color/lightBlue"
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_date" />
+
+    <TextView
+        android:id="@+id/tV_addUserLabel"
+        style="@style/textRegular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="16dp"
+        android:text="Wybierz członka grupy"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_members"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tV_groupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nazwa Grupy"
+        android:textAppearance="@style/textBlueBig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.759"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tV_groupName" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/txt_title_change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_task_add_view"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="15dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_members"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tV_addUserLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
