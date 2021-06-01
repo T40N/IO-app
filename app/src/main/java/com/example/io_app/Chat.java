@@ -95,7 +95,6 @@ public class Chat extends AppCompatActivity {
 
                 sendMessage(fuser.getUid(), userId, msg);
                 message_input.setText("");
-                //Toast.makeText(Chat.this, fuser.getUid(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -114,8 +113,6 @@ public class Chat extends AppCompatActivity {
     private void readMessage(String myId, String userId) {
         mMessage = new ArrayList<>();
 
-
-        System.out.println("odczyt wiadomosci jest tu");
         reference = FirebaseDatabase.getInstance().getReference("Chats");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -125,11 +122,12 @@ public class Chat extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : datasnapshot.getChildren()) {
                     MessageDB messageDB = snapshot.getValue(MessageDB.class);
-                    if (messageDB.getUserRecieve().equals(myId) && messageDB.getUserSend().equals(userId)
-                    || messageDB.getUserRecieve().equals(userId) && messageDB.getUserSend().equals(myId))
+
+                    if (messageDB.getReceiver().equals(myId) && messageDB.getSender().equals(userId)
+                    || messageDB.getReceiver().equals(userId) && messageDB.getSender().equals(myId))
                         mMessage.add(messageDB);
 
-                    messageAdapter = new MessageAdapter(Chat.this, mMessage);
+                    messageAdapter = new MessageAdapter(Chat.this, mMessage, (String)userName.getText());
                     chatRecyclerView.setAdapter(messageAdapter);
                 }
             }
