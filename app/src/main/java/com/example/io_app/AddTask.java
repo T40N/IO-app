@@ -147,8 +147,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener {
     private void addTask(){
         String taskTile = taskName.getText().toString();
         UserDB member = (UserDB) spinner.getSelectedItem();
-        Calendar taskDate = new GregorianCalendar(taskYear,taskMonth,taskDay,taskHour,taskMinute);
-        TaskDB newTask = new TaskDB(taskTile,groupName,member.getId(),taskDate);
+        TaskDB newTask = new TaskDB(taskTile,groupName,member.getId(),taskDay,taskMonth,taskYear,taskHour,taskMinute);
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users/" + member.getId());
         dbRef.child("Tasks").push().setValue(newTask);
