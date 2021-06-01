@@ -95,7 +95,7 @@ public class Chat extends AppCompatActivity {
 
                 sendMessage(fuser.getUid(), userId, msg);
                 message_input.setText("");
-                Toast.makeText(Chat.this, fuser.getUid(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(Chat.this, fuser.getUid(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -115,6 +115,7 @@ public class Chat extends AppCompatActivity {
         mMessage = new ArrayList<>();
 
 
+        System.out.println("odczyt wiadomosci jest tu");
         reference = FirebaseDatabase.getInstance().getReference("Chats");
 
         reference.addValueEventListener(new ValueEventListener() {
