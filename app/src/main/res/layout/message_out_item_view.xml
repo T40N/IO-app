@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/textRegular"
-        android:id="@+id/messageOut"
+        android:id="@+id/messageText"
         android:layout_below="@id/messageOutAuthor"
         android:background="@drawable/message_out"
         android:text="@string/messageContent"
