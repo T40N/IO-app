@@ -32,7 +32,6 @@ public class AddGroupUserList extends AppCompatActivity {
     String groupName;
 
     AddGroupAdapter.RecyclerViewClickListener listener;
-    UserDB mem1,mem2,mem3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +61,10 @@ public class AddGroupUserList extends AppCompatActivity {
                 Bundle data = getIntent().getExtras();
 
                 groupName = data.getString("GROUP_NAME");
+
+                for (UserDB usr : adapter.getSet()){
+                    ref.child(usr.getId()).child("group").setValue(groupName);
+                }
 
                 Intent intent = new Intent(getApplicationContext(),AddGroupLeader.class);
                 ArrayList<UserDB> addedUsersList = new ArrayList<UserDB>(adapter.getSet());

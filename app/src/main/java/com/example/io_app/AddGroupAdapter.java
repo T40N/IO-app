@@ -29,12 +29,12 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
 
 
 
+
     public AddGroupAdapter(Context context, ArrayList<UserDB> list, RecyclerViewClickListener listener) {
         this.context = context;
         this.list = list;
         this.listener = listener;
-        //list = new ArrayList<>();
-      //  usersId = new ArrayList<>();
+
     }
 
     public HashSet<UserDB> getSet() {

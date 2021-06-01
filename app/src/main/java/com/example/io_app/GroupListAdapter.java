@@ -1,56 +1,96 @@
 package com.example.io_app;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
-public class GroupListAdapter extends RecyclerView.Adapter {
-    List<GroupDB> groupDBList;
+public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.MyViewHolder> {
 
-    public GroupListAdapter(List<GroupDB> groupDBList) {
-        this.groupDBList = groupDBList;
+    Context context;
+    ArrayList<TaskDB> list;
+    RecyclerViewClickListener listener;
+
+
+
+
+    public GroupListAdapter(Context context, ArrayList<TaskDB> list, RecyclerViewClickListener listener) {
+        this.context = context;
+        this.list = list;
+        this.listener = listener;
+
     }
+
+
 
     @NonNull
     @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.group_list_item_view, parent,false);
-        ViewAdapter viewAdapter = new ViewAdapter(view);
-
-       return viewAdapter;
+    public MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.task_list_item,parent,false);
+        return new MyViewHolder(v);
     }
 
+
+
     @Override
-    public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {
 
-        ViewAdapter viewAdapter = (ViewAdapter) holder;
+       TaskDB task = list.get(position);
+        holder.taskName.setText(task.getTaskName());
+        holder.taskTime.setText(task.getDateTime().toString());
 
-        GroupDB groupDB = groupDBList.get(position);
-        viewAdapter.groupName.setText(groupDB.getGroupName());
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
 
     }
 
     @Override
     public int getItemCount() {
-        return groupDBList.size();
+        return list.size();
     }
 
-    public class ViewAdapter extends RecyclerView.ViewHolder{
+    public interface RecyclerViewClickListener{
+        void onClick(View v, int position);
+    }
 
-        TextView groupName;
-        public ViewAdapter(@NonNull @NotNull View itemView) {
+    public  class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        TextView taskName, taskTime;
+        LinearLayout linearLayout;
+        public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            groupName = itemView.findViewById(R.id.groupName);
+
+            taskName = itemView.findViewById(R.id.taskNameTextView);
+            taskTime = itemView.findViewById(R.id.taskDateTextView);
+            itemView.setOnClickListener(this);
+
+            linearLayout = (LinearLayout)itemView.findViewById(R.id.TaskLinearLayout);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(v, getAdapterPosition());
         }
     }
 }

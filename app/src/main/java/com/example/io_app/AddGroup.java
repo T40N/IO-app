@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class AddGroup extends AppCompatActivity implements View.OnClickListener {
@@ -17,6 +20,8 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener 
     UserDB leader = new UserDB();
     EditText groupNameEditText;
     String editTextValue;
+    DatabaseReference ref;
+    TaskDB task = new TaskDB("Prezentacja","qOjS4qf8WXfZQUzrakKXxq0jWOQ2","OFcO6674pScAnH83mKvWUlZwPiF3",)
 
     Button nextBtn;
     @Override
@@ -30,6 +35,8 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener 
         groupNameEditText = (EditText)findViewById(R.id.groupNameEditText);
         groupNameEditText.setOnClickListener(this);
 
+        ref = FirebaseDatabase.getInstance().getReference().child("Tasks");
+        ref.push().setValue()
     }
 
 

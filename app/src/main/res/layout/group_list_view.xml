@@ -7,23 +7,56 @@
     tools:context=".GroupList">
 
     <TextView
-        android:id="@+id/groupListHeader"
-        style="@style/textBig"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin24"
-        android:layout_marginEnd="@dimen/margin24"
+        android:id="@+id/taskGroupsTextView"
+        android:layout_width="141dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
         android:text="@string/groupHeader"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/groupListRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin24"
+    <TextView
+        android:id="@+id/groupNameTextView"
+        android:layout_width="154dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="44dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/groupListHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/taskGroupsTextView" />
 
+    <TextView
+        android:id="@+id/tasktToDoTextView"
+        android:layout_width="171dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/taskToDo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupNameTextView" />
+
+    <Button
+        android:id="@+id/seeUsersBtn"
+        android:layout_width="190dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="188dp"
+        android:text="@string/seeFellows"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/taskRecyclerview"
+        android:layout_width="249dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tasktToDoTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
