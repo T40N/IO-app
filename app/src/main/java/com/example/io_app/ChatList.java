@@ -38,13 +38,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ChatList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatList extends AppCompatActivity {
+public class ChatList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     List<UserDB> usersList;
