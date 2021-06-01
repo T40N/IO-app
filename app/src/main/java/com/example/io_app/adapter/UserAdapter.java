@@ -36,7 +36,7 @@ public class UserAdapter  extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(@NotNull ViewHolder holder, int position) {
         UserDB user = mUsers.get(position);
         holder.userName.setText(user.getName() + " " + user.getSurname());
-        holder.profileImage.setImageResource(R.drawable.ic_message);
+        holder.profileImage.setImageResource(R.drawable.ic_profile_pic);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

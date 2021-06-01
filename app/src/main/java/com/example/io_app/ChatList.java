@@ -15,6 +15,8 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.io_app.adapter.UserAdapter;
 
@@ -35,56 +37,98 @@ import java.util.List;
 
 public class ChatList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    List<UserDB> usersList;
-    RecyclerView recyclerView;
-    UserAdapter userAdapter;
+    private List<UserDB> mUsers;
+    private RecyclerView recyclerView;
+    private UserAdapter userAdapter;
+
+    private List<String> usersList;
+
+    FirebaseUser fuser;
+    DatabaseReference reference;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
 
+    ImageButton newChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_list_view);
 
+        newChat = findViewById(R.id.addChatButton);
+
+        newChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), UsersList.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
         recyclerView = findViewById(R.id.personalMessageRecyclerView);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        fuser = FirebaseAuth.getInstance().getCurrentUser();
+
         usersList = new ArrayList<>();
 
-        readUsers();
-    }
+        reference = FirebaseDatabase.getInstance().getReference("Chats");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot datasnapshot) {
+                usersList.clear();
 
-    private void readUsers() {
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                for (DataSnapshot snapshot : datasnapshot.getChildren()) {
+                    MessageDB message = snapshot.getValue(MessageDB.class);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
-        navigationView = findViewById(R.id.navigation_view);
-        toolbar = findViewById(R.id.toolbar);
+                    if (message.getSender().equals(fuser.getUid()))
+                        usersList.add(message.getReceiver());
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.Open,R.string.Close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    if (message.getReceiver().equals(fuser.getUid()))
+                        usersList.add(message.getSender());
+                }
+                
+                readChats();
+            }
 
             @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                usersList.clear();
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    UserDB user = ds.getValue(UserDB.class);
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
-                    usersList.add(user);
+            }
+        });
+    }
+
+    private void readChats() {
+        mUsers = new ArrayList<>();
+
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot datasnapshot) {
+                mUsers.clear();
+
+                for (DataSnapshot snapshot : datasnapshot.getChildren()) {
+                    UserDB user = snapshot.getValue(UserDB.class);
+
+                    for (String id : usersList) {
+                        if (user.getId().equals(id)) {
+                            if (mUsers.size() != 0) {
+                                for (UserDB user1 : mUsers) {
+                                    if (!user.getId().equals(user1.getId()))
+                                        mUsers.add(user);
+                                }
+                            } else {
+                                mUsers.add(user);
+                            }
+                        }
+                    }
                 }
 
-                userAdapter = new UserAdapter(usersList);
+                userAdapter = new UserAdapter(mUsers);
                 recyclerView.setAdapter(userAdapter);
             }
 

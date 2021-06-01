@@ -70,7 +70,6 @@
     <string name="create">Utwórz grupę</string>
 
 
-
     <!-- USER PROFILE -->
     <string name="statusAvailable">Dostępny</string>
     <string name="statusUnavailable">Niedostępny</string>
@@ -95,11 +94,13 @@
     <string name="zadania">Zadania</string>
     <string name="chat">Chat</string>
 
-    
+
     <!--navigation-->
     <string name="Open">Open</string>
     <string name="Close">Close</string>
     <string name="wybierz_dat">Wybierz datę</string>
     <string name="wybierz_czas">Wybierz czas</string>
+    <string name="usersList">Lista użytkowników</string>
+    <string name="usersChats">Twoje konwersacje</string>
 
 </resources>
