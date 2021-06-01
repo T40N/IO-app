@@ -7,11 +7,6 @@
         android:icon="@drawable/ic_baseline_home_24" />
 
     <item
-        android:id="@+id/search"
-        android:title="@string/wyszukaj"
-        android:icon="@drawable/ic_baseline_search_24" />
-
-    <item
         android:id="@+id/calendar"
         android:title="@string/kalendarz"
         android:icon="@drawable/ic_baseline_calendar_today_24" />
@@ -30,10 +25,5 @@
         android:id="@+id/chat"
         android:title="@string/chat"
         android:icon="@drawable/ic_baseline_chat_24" />
-
-    <item
-        android:id="@+id/options"
-        android:title="@string/OptionsString"
-        android:icon="@drawable/ic_baseline_settings_24" />
 
 </menu>
