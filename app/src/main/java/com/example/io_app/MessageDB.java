@@ -9,6 +9,12 @@ public class MessageDB {
         this.userRecieve = userRecieve;
     }
 
+    public MessageDB() {
+        this.message = "message";
+        this.userSend = "userSend";
+        this.userRecieve = "userRecieve";
+    }
+
     public String getMessage() {
         return message;
     }
