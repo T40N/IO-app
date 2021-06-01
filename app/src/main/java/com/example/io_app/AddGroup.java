@@ -21,7 +21,7 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener 
     EditText groupNameEditText;
     String editTextValue;
     DatabaseReference ref;
-    TaskDB task = new TaskDB("Prezentacja","qOjS4qf8WXfZQUzrakKXxq0jWOQ2","OFcO6674pScAnH83mKvWUlZwPiF3",)
+
 
     Button nextBtn;
     @Override
@@ -35,8 +35,6 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener 
         groupNameEditText = (EditText)findViewById(R.id.groupNameEditText);
         groupNameEditText.setOnClickListener(this);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("Tasks");
-        ref.push().setValue()
     }
 
 

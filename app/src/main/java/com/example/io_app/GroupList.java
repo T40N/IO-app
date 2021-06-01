@@ -42,7 +42,7 @@ public class GroupList extends AppCompatActivity {
         recyclerView = findViewById(R.id.taskRecyclerview);
         user = FirebaseAuth.getInstance().getCurrentUser();
         uID = user.getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("Tasks");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -61,8 +61,6 @@ public class GroupList extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
 
                     task = dataSnapshot.getValue(TaskDB.class);
-
-                    if (uID == task.getUserReceiver())
                         list.add(task);
 
                 }
