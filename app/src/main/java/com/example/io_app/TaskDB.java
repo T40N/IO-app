@@ -4,35 +4,37 @@ package com.example.io_app;
 import com.alamkanak.weekview.WeekViewEvent;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 public class TaskDB {
     private String taskName;
-    private String userCreator;
+    private String group;
     private String userReceiver;
-    private Calendar dateTime;
+    private int taskHour, taskMinute, taskDay, taskMonth, taskYear;
+    //private Calendar dateTime;
 
-    public TaskDB(String taskName, String userCreator, String userReceiver, Calendar dateTime) {
+    public TaskDB(String taskName, String group, String userReceiver, int taskDay, int taskMonth, int taskYear, int taskHour, int taskMinute) {
         this.taskName = taskName;
-        this.userCreator = userCreator;
+        this.group = group;
         this.userReceiver = userReceiver;
-        this.dateTime = dateTime;
+        this.taskDay = taskDay;
+        this.taskMonth = taskMonth;
+        this.taskYear = taskYear;
+        this.taskHour = taskHour;
+        this.taskMinute = taskMinute;
     }
 
-    public WeekViewEvent toWeekViewEvent(int i){
-        Calendar startTime = (Calendar) this.dateTime.clone();
+    public TaskDB () {}
+
+    public WeekViewEvent toWeekViewEvent(){
+        Calendar taskDate = new GregorianCalendar(taskYear,taskMonth,taskDay,taskHour,taskMinute);
+        Calendar startTime = (Calendar) taskDate.clone();
         Calendar endTime = (Calendar) startTime.clone();
         endTime.set(Calendar.HOUR_OF_DAY,startTime.get(Calendar.HOUR_OF_DAY) + 1);
-        return new WeekViewEvent(String.valueOf(i), this.taskName,startTime,endTime);
+        return new WeekViewEvent(this.taskName, this.taskName,startTime,endTime);
     }
 
-    public Calendar getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(Calendar dateTime) {
-        this.dateTime = dateTime;
-    }
 
     public String getTaskName() {
         return taskName;
@@ -42,12 +44,12 @@ public class TaskDB {
         this.taskName = taskName;
     }
 
-    public String getUserCreator() {
-        return userCreator;
+    public String getGroup() {
+        return group;
     }
 
-    public void setUserCreator(String userCreator) {
-        this.userCreator = userCreator;
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public String getUserReceiver() {
@@ -59,4 +61,43 @@ public class TaskDB {
     }
 
 
+    public int getTaskHour() {
+        return taskHour;
+    }
+
+    public void setTaskHour(int taskHour) {
+        this.taskHour = taskHour;
+    }
+
+    public int getTaskMinute() {
+        return taskMinute;
+    }
+
+    public void setTaskMinute(int taskMinute) {
+        this.taskMinute = taskMinute;
+    }
+
+    public int getTaskDay() {
+        return taskDay;
+    }
+
+    public void setTaskDay(int taskDay) {
+        this.taskDay = taskDay;
+    }
+
+    public int getTaskMonth() {
+        return taskMonth;
+    }
+
+    public void setTaskMonth(int taskMonth) {
+        this.taskMonth = taskMonth;
+    }
+
+    public int getTaskYear() {
+        return taskYear;
+    }
+
+    public void setTaskYear(int taskYear) {
+        this.taskYear = taskYear;
+    }
 }

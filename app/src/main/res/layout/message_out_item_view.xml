@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/messageOutAuthor"
+        android:id="@+id/messageAuthor"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/padding"
         style="@style/textBlue"
@@ -19,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/textRegular"
-        android:id="@+id/messageOut"
-        android:layout_below="@id/messageOutAuthor"
+        android:id="@+id/messageText"
+        android:layout_below="@id/messageAuthor"
         android:background="@drawable/message_out"
         android:text="@string/messageContent"
         android:layout_alignParentRight="true"/>
