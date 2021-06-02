@@ -1,6 +1,9 @@
 package com.example.io_app;
 
 import androidx.annotation.NonNull;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,39 +12,57 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
+
+import com.example.io_app.adapter.UserAdapter;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChatList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    ImageButton addButton;
+    List<UserDB> usersList;
+    RecyclerView recyclerView;
+    UserAdapter userAdapter;
 
-    RecyclerView personalRecyclerView;
-    RecyclerView groupRecyclerView;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_list_view);
 
-        addButton = findViewById(R.id.addChatButton);
-        personalRecyclerView = findViewById(R.id.personalMessageRecyclerView);
-        groupRecyclerView = findViewById(R.id.groupMessageRecyclerView);
+        recyclerView = findViewById(R.id.personalMessageRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        usersList = new ArrayList<>();
+
+        readUsers();
+    }
+
+    private void readUsers() {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
         drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
         navigationView = findViewById(R.id.navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -52,14 +73,28 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
-            public void onClick(View view) {
-                // TODO: creat new chat
-                System.out.println("Adding new chat");
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                usersList.clear();
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    UserDB user = ds.getValue(UserDB.class);
+
+                    usersList.add(user);
+                }
+
+                userAdapter = new UserAdapter(usersList);
+                recyclerView.setAdapter(userAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
             }
         });
     }
+
 
     @Override
     public void onBackPressed(){
