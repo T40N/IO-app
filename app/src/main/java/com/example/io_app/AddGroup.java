@@ -14,14 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-<<<<<<< HEAD
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-=======
+
 import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
->>>>>>> 342c98542f00d7e06042925444da53b557b23e38
+
 
 import java.util.ArrayList;
 
@@ -32,14 +29,11 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener,
     UserDB leader = new UserDB();
     EditText groupNameEditText;
     String editTextValue;
-<<<<<<< HEAD
-    DatabaseReference ref;
 
-=======
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
->>>>>>> 342c98542f00d7e06042925444da53b557b23e38
+
 
     Button nextBtn;
     @Override
