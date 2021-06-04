@@ -1,0 +1,168 @@
+com/example/io_app/BuildConfig.java
+ com.example.io_app.BuildConfig
+com/example/io_app/NotificationDB.java
+ com.example.io_app.NotificationDB
+com/example/io_app/databinding/ChatListViewBinding.java
+ com.example.io_app.databinding.ChatListViewBinding
+com/example/io_app/databinding/CustomSpinnerAdapterBinding.java
+ com.example.io_app.databinding.CustomSpinnerAdapterBinding
+com/example/io_app/SeekWindow.java
+ com.example.io_app.SeekWindow
+com/example/io_app/databinding/GroupUserListItemViewBinding.java
+ com.example.io_app.databinding.GroupUserListItemViewBinding
+com/example/io_app/AddGroupUserList.java
+ com.example.io_app.AddGroupUserList
+ com.example.io_app.AddGroupUserList$1
+ com.example.io_app.AddGroupUserList$2
+ com.example.io_app.AddGroupUserList$3
+com/example/io_app/placeholder/CustomSpinnerAdapter.java
+ com.example.io_app.placeholder.CustomSpinnerAdapter
+com/example/io_app/CalendarMonth.java
+ com.example.io_app.CalendarMonth
+com/example/io_app/Register.java
+ com.example.io_app.Register
+ com.example.io_app.Register$1
+ com.example.io_app.Register$1$1
+com/example/io_app/databinding/UserItemViewBinding.java
+ com.example.io_app.databinding.UserItemViewBinding
+com/example/io_app/databinding/GroupListItemViewBinding.java
+ com.example.io_app.databinding.GroupListItemViewBinding
+com/example/io_app/databinding/TaskListItemBinding.java
+ com.example.io_app.databinding.TaskListItemBinding
+com/example/io_app/databinding/HomeWindowViewBinding.java
+ com.example.io_app.databinding.HomeWindowViewBinding
+com/example/io_app/AddLeaderAdapter.java
+ com.example.io_app.AddLeaderAdapter
+ com.example.io_app.AddLeaderAdapter$1
+ com.example.io_app.AddLeaderAdapter$MyViewHolder
+ com.example.io_app.AddLeaderAdapter$RecyclerViewClickListener
+com/example/io_app/databinding/MessageInItemViewBinding.java
+ com.example.io_app.databinding.MessageInItemViewBinding
+com/example/io_app/Chat.java
+ com.example.io_app.Chat
+ com.example.io_app.Chat$1
+ com.example.io_app.Chat$2
+ com.example.io_app.Chat$3
+com/example/io_app/databinding/GroupListViewBinding.java
+ com.example.io_app.databinding.GroupListViewBinding
+com/example/io_app/databinding/GroupUserListViewBinding.java
+ com.example.io_app.databinding.GroupUserListViewBinding
+com/example/io_app/GroupTasks.java
+ com.example.io_app.GroupTasks
+com/example/io_app/GroupUserList.java
+ com.example.io_app.GroupUserList
+com/example/io_app/Login.java
+ com.example.io_app.Login
+ com.example.io_app.Login$1
+com/example/io_app/databinding/ActivityAddGroupUserListBinding.java
+ com.example.io_app.databinding.ActivityAddGroupUserListBinding
+com/example/io_app/AddGroupLeader.java
+ com.example.io_app.AddGroupLeader
+ com.example.io_app.AddGroupLeader$1
+ com.example.io_app.AddGroupLeader$2
+ com.example.io_app.AddGroupLeader$3
+com/example/io_app/databinding/GroupItemViewBinding.java
+ com.example.io_app.databinding.GroupItemViewBinding
+com/example/io_app/adapter/UserAdapter.java
+ com.example.io_app.adapter.UserAdapter
+ com.example.io_app.adapter.UserAdapter$1
+ com.example.io_app.adapter.UserAdapter$ViewHolder
+com/example/io_app/databinding/CalendarDayViewBinding.java
+ com.example.io_app.databinding.CalendarDayViewBinding
+com/example/io_app/databinding/CalendarMonthViewBinding.java
+ com.example.io_app.databinding.CalendarMonthViewBinding
+com/example/io_app/databinding/LoginViewBinding.java
+ com.example.io_app.databinding.LoginViewBinding
+com/example/io_app/databinding/CalendarWeekViewBinding.java
+ com.example.io_app.databinding.CalendarWeekViewBinding
+com/example/io_app/AddTask.java
+ com.example.io_app.AddTask
+ com.example.io_app.AddTask$1
+ com.example.io_app.AddTask$2
+ com.example.io_app.AddTask$3
+com/example/io_app/UserDB.java
+ com.example.io_app.UserDB
+ com.example.io_app.UserDB$1
+com/example/io_app/databinding/ActivityAddGroupBinding.java
+ com.example.io_app.databinding.ActivityAddGroupBinding
+com/example/io_app/databinding/ActivityAddGroupLeaderBinding.java
+ com.example.io_app.databinding.ActivityAddGroupLeaderBinding
+com/example/io_app/GroupList.java
+ com.example.io_app.GroupList
+ com.example.io_app.GroupList$1
+ com.example.io_app.GroupList$2
+ com.example.io_app.GroupList$3
+ com.example.io_app.GroupList$4
+com/example/io_app/HomeWindow.java
+ com.example.io_app.HomeWindow
+ com.example.io_app.HomeWindow$1
+com/example/io_app/databinding/HeaderBinding.java
+ com.example.io_app.databinding.HeaderBinding
+com/example/io_app/databinding/MessageOutItemViewBinding.java
+ com.example.io_app.databinding.MessageOutItemViewBinding
+com/example/io_app/CalendarDay.java
+ com.example.io_app.CalendarDay
+com/example/io_app/CalendarUpcomingDays.java
+ com.example.io_app.CalendarUpcomingDays
+com/example/io_app/databinding/ChatViewBinding.java
+ com.example.io_app.databinding.ChatViewBinding
+com/example/io_app/databinding/SeekWindowViewBinding.java
+ com.example.io_app.databinding.SeekWindowViewBinding
+com/example/io_app/MainActivity.java
+ com.example.io_app.MainActivity
+com/example/io_app/databinding/GroupTasksItemViewBinding.java
+ com.example.io_app.databinding.GroupTasksItemViewBinding
+com/example/io_app/GroupDB.java
+ com.example.io_app.GroupDB
+com/example/io_app/databinding/ListUserItemBinding.java
+ com.example.io_app.databinding.ListUserItemBinding
+com/example/io_app/placeholder/PlaceholderContent.java
+ com.example.io_app.placeholder.PlaceholderContent
+ com.example.io_app.placeholder.PlaceholderContent$PlaceholderItem
+com/example/io_app/databinding/RegisterViewBinding.java
+ com.example.io_app.databinding.RegisterViewBinding
+com/example/io_app/WeekViewLoader.java
+ com.example.io_app.WeekViewLoader
+ com.example.io_app.WeekViewLoader$1
+com/example/io_app/databinding/UserProfileViewBinding.java
+ com.example.io_app.databinding.UserProfileViewBinding
+com/example/io_app/TaskDB.java
+ com.example.io_app.TaskDB
+com/example/io_app/AddGroupAdapter.java
+ com.example.io_app.AddGroupAdapter
+ com.example.io_app.AddGroupAdapter$1
+ com.example.io_app.AddGroupAdapter$MyViewHolder
+ com.example.io_app.AddGroupAdapter$RecyclerViewClickListener
+com/example/io_app/databinding/AddTaskViewBinding.java
+ com.example.io_app.databinding.AddTaskViewBinding
+com/example/io_app/GroupListAdapter.java
+ com.example.io_app.GroupListAdapter
+ com.example.io_app.GroupListAdapter$1
+ com.example.io_app.GroupListAdapter$MyViewHolder
+ com.example.io_app.GroupListAdapter$RecyclerViewClickListener
+com/example/io_app/databinding/ActivityMainBinding.java
+ com.example.io_app.databinding.ActivityMainBinding
+com/example/io_app/databinding/GroupTasksViewBinding.java
+ com.example.io_app.databinding.GroupTasksViewBinding
+com/example/io_app/ChatList.java
+ com.example.io_app.ChatList
+ com.example.io_app.ChatList$1
+com/example/io_app/SeekbarDB.java
+ com.example.io_app.SeekbarDB
+com/example/io_app/AddGroup.java
+ com.example.io_app.AddGroup
+com/example/io_app/Calendar.java
+ com.example.io_app.Calendar
+com/example/io_app/MessageDB.java
+ com.example.io_app.MessageDB
+com/example/io_app/UserProfile.java
+ com.example.io_app.UserProfile
+com/example/io_app/databinding/CalendarUpcomingDaysViewBinding.java
+ com.example.io_app.databinding.CalendarUpcomingDaysViewBinding
+com/example/io_app/CalendarWeek.java
+ com.example.io_app.CalendarWeek
+com/example/io_app/databinding/CalendarViewBinding.java
+ com.example.io_app.databinding.CalendarViewBinding
+com/example/io_app/adapter/MessageAdapter.java
+ com.example.io_app.adapter.MessageAdapter
+ com.example.io_app.adapter.MessageAdapter$ViewHolder

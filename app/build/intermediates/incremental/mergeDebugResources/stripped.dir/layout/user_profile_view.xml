@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile"
+    android:id="@+id/DrawerLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout 
+        android:layout_height="match_parent"
+         android:layout_width="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toTopOf="@+id/userImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_baseline_menu_24" />
+
+
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="164dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="@dimen/margin"
+        android:background="@drawable/ic_profile_pic"
+        android:contentDescription="@string/userImageDescription"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.154"
+        app:srcCompat="@drawable/ic_profile_pic" />
+
+    <TextView
+        android:id="@+id/userStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/statusAvailable"
+        android:textAlignment="center"
+        style="@style/textStatusAvailable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userImage"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/userNameLabel"
+        style="@style/textBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/name"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userStatus" />
+
+    <TextView
+        android:id="@+id/userSurnameLabel"
+        style="@style/textBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/surname"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/userNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+    <TextView
+        android:id="@+id/userEmailLabel"
+        style="@style/textBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/email"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/userNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/userSurname" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:text="@string/user"
+        android:textAlignment="center"
+        style="@style/textBig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameLabel" />
+
+    <TextView
+        android:id="@+id/userSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:text="@string/user"
+        android:textAlignment="center"
+        style="@style/textBig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userSurnameLabel" />
+
+    <TextView
+        android:id="@+id/userEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:text="@string/user"
+        android:textAlignment="center"
+        style="@style/textBig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userEmailLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawermenu"
+        app:headerLayout="@layout/header"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

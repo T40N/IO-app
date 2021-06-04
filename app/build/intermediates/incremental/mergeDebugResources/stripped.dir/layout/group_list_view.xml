@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GroupList">
+
+    <TextView
+        android:id="@+id/taskGroupsTextView"
+        style="@style/textMedium"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/groupHeader"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/groupNameTextView"
+        style="@style/textGreyMedium"
+        android:layout_width="151dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskGroupsTextView" />
+
+    <TextView
+        android:id="@+id/tasktToDoTextView"
+        style="@style/textGreySmall"
+        android:layout_width="231dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/taskToDo"
+
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupNameTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/taskRecyclerview"
+        android:layout_width="159dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tasktToDoTextView" />
+
+    <TextView
+        android:id="@+id/seeFellows"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:text="@string/seeFellows"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskRecyclerview"
+        style= "@style/textBlueSmall"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

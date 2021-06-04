@@ -1,0 +1,126 @@
+[
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\chat_list_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\chat_list_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_list_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_list_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\user_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\user_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_add_group_user_list.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\activity_add_group_user_list.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_tasks_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_tasks_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\calendar_week_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\calendar_week_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\calendar_month_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\calendar_month_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_user_list_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_user_list_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_list_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_list_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\message_out_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\message_out_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\task_list_item.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\task_list_item.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\calendar_day_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\calendar_day_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\login_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\login_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\list_user_item.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\list_user_item.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\header.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\header.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\seek_window_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\seek_window_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_add_group_leader.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\activity_add_group_leader.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\add_task_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\add_task_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\user_profile_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\user_profile_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\calendar_upcoming_days_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\calendar_upcoming_days_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_tasks_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_tasks_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_add_group.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\activity_add_group.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\message_in_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\message_in_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\custom_spinner_adapter.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\custom_spinner_adapter.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\home_window_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\home_window_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\chat_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\chat_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\register_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\register_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\group_user_list_item_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\group_user_list_item_view.xml"
+    },
+    {
+        "merged": "D:\\Programowanie_Android\\IO-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\calendar_view.xml",
+        "source": "D:\\Programowanie_Android\\IO-app\\app\\src\\main\\res\\layout\\calendar_view.xml"
+    }
+]
