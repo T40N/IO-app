@@ -13,9 +13,7 @@
         <activity
             android:name=".AddGroupLeader"
             android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </activity>
 
 
         <activity android:name=".AddGroupUserList"
@@ -56,8 +54,8 @@
             </intent-filter>
         </activity>
 
-
-        <activity android:name=".ChatList" />
+        <activity android:name=".ChatList"
+            android:exported="true"/>
 
 
         <activity android:name=".Chat" />
@@ -72,20 +70,15 @@
         </activity>
 
 
-        <activity android:name=".AddTask" />
+        <activity android:name=".AddTask" android:exported="true"/>
 
 
-        <activity android:name=".UserProfile" />
-
-
-        <activity android:name=".Calendar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".UserProfile">
         </activity>
 
+
+
+        <activity android:name=".Calendar" android:exported="true"/>
 
         <activity
             android:name=".Register"
@@ -96,7 +89,13 @@
         </activity>
 
 
-        <activity android:name=".Login" />
+        <activity android:name=".Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".MainActivity">

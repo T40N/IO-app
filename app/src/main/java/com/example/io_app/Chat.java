@@ -1,19 +1,47 @@
 package com.example.io_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.io_app.adapter.MessageAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Chat extends AppCompatActivity {
 
+    FirebaseUser fuser;
+    DatabaseReference reference;
+
+    TextView userName;
+
+    Intent intent;
+
     ImageButton sendMessage;
     EditText message_input;
+
+    MessageAdapter messageAdapter;
+    List<MessageDB> mMessage;
 
     RecyclerView chatRecyclerView;
 
@@ -22,15 +50,38 @@ public class Chat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_view);
 
-
-        sendMessage = findViewById(R.id.sendMessage);
-        message_input = findViewById(R.id.message_input);
-
         chatRecyclerView = findViewById(R.id.chatRecyclerView);
         chatRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         chatRecyclerView.setLayoutManager(linearLayoutManager);
+
+        intent = getIntent();
+
+        userName = findViewById(R.id.chatName);
+
+        String userId = intent.getStringExtra("userId");
+
+        fuser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot snapshot) {
+                UserDB user = snapshot.getValue(UserDB.class);
+                userName.setText(user.getName() + " " + user.getSurname());
+
+                readMessage(fuser.getUid(), userId);
+            }
+
+            @Override
+            public void onCancelled(@NotNull DatabaseError error) {
+
+            }
+        });
+
+        sendMessage = findViewById(R.id.sendMessage);
+        message_input = findViewById(R.id.message_input);
 
         sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,14 +93,49 @@ public class Chat extends AppCompatActivity {
                     return;
                 }
 
-                //sendMessage();
+                sendMessage(fuser.getUid(), userId, msg);
                 message_input.setText("");
             }
         });
     }
 
     private void sendMessage(String senderUser, String receiverUser, String message) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("sender", senderUser);
+        hashMap.put("receiver", receiverUser);
+        hashMap.put("message", message);
+
+        reference.child("Chats").push().setValue(hashMap);
     }
 
+    private void readMessage(String myId, String userId) {
+        mMessage = new ArrayList<>();
+
+        reference = FirebaseDatabase.getInstance().getReference("Chats");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot datasnapshot) {
+                mMessage.clear();
+
+                for (DataSnapshot snapshot : datasnapshot.getChildren()) {
+                    MessageDB messageDB = snapshot.getValue(MessageDB.class);
+
+                    if (messageDB.getReceiver().equals(myId) && messageDB.getSender().equals(userId)
+                    || messageDB.getReceiver().equals(userId) && messageDB.getSender().equals(myId))
+                        mMessage.add(messageDB);
+
+                    messageAdapter = new MessageAdapter(Chat.this, mMessage, (String)userName.getText());
+                    chatRecyclerView.setAdapter(messageAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
 }

@@ -46,8 +46,7 @@ public class CalendarUpcomingDays extends Fragment implements MonthLoader.MonthC
     @Nullable
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        List <WeekViewEvent> events = new ArrayList<WeekViewEvent>();
-
+        List <WeekViewEvent> events = (List<WeekViewEvent>) WeekViewLoader.loadEvents(newYear,newMonth);
         return events;
     }
 

@@ -46,26 +46,7 @@ public class CalendarWeek extends Fragment implements MonthLoader.MonthChangeLis
     @Nullable
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        List <WeekViewEvent> events = new ArrayList<WeekViewEvent>();
-        // creating sample events for showcase purpose
-        Calendar date = Calendar.getInstance();
-        date.set(newYear, newMonth - 1,25,15,0);
-        TaskDB task = new TaskDB("Sample 1","","",date);
-        WeekViewEvent event = task.toWeekViewEvent(0);
-        event.setColor(getResources().getColor(R.color.accentBlue));
-        events.add(event);
-
-        date.set(newYear, newMonth - 1,27,10,0);
-        task = new TaskDB("Sample 2","","",date);
-        event = task.toWeekViewEvent(1);
-        event.setColor(getResources().getColor(R.color.accentBlue));
-        events.add(event);
-
-        date.set(newYear, newMonth - 1,28,12,0);
-        task = new TaskDB("Sample 3","","",date);
-        event = task.toWeekViewEvent(2);
-        event.setColor(getResources().getColor(R.color.accentBlue));
-        events.add(event);
+        List <WeekViewEvent> events = (List<WeekViewEvent>) WeekViewLoader.loadEvents(newYear,newMonth);
 
         return events;
     }
