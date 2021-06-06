@@ -1,0 +1,165 @@
+Index: app/src/main/java/com/example/io_app/GroupListAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.io_app;\r\n\r\nimport android.content.Context;\r\nimport android.graphics.Color;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.LinearLayout;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.google.firebase.database.DatabaseReference;\r\n\r\nimport org.jetbrains.annotations.NotNull;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashSet;\r\nimport java.util.List;\r\n\r\npublic class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.MyViewHolder> {\r\n\r\n    Context context;\r\n    ArrayList<TaskDB> list;\r\n    RecyclerViewClickListener listener;\r\n\r\n\r\n\r\n\r\n    public GroupListAdapter(Context context, ArrayList<TaskDB> list, RecyclerViewClickListener listener) {\r\n        this.context = context;\r\n        this.list = list;\r\n        this.listener = listener;\r\n\r\n    }\r\n\r\n\r\n\r\n    @NonNull\r\n    @NotNull\r\n    @Override\r\n    public MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {\r\n        View v = LayoutInflater.from(context).inflate(R.layout.task_list_item,parent,false);\r\n        return new MyViewHolder(v);\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {\r\n\r\n       TaskDB task = list.get(position);\r\n        holder.taskName.setText(task.getTaskName());\r\n        if (task.getTaskDay() < 10){\r\n            holder.taskTime.setText(\"0\" + task.getTaskDay() + \".\" + task.getTaskMonth());\r\n        }\r\n\r\n        if (task.getTaskMonth() < 10){\r\n            holder.taskTime.setText(task.getTaskDay() + \".0\" + task.getTaskMonth());\r\n        }\r\n\r\n        else {\r\n            holder.taskTime.setText(task.getTaskDay() + \".\" + task.getTaskMonth());\r\n        }\r\n\r\n        holder.linearLayout.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n\r\n            }\r\n        });\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return list.size();\r\n    }\r\n\r\n    public interface RecyclerViewClickListener{\r\n        void onClick(View v, int position);\r\n    }\r\n\r\n    public  class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{\r\n\r\n        TextView taskName, taskTime;\r\n        LinearLayout linearLayout;\r\n        public MyViewHolder(@NonNull @NotNull View itemView) {\r\n            super(itemView);\r\n\r\n            taskName = itemView.findViewById(R.id.taskNameTextView);\r\n            taskTime = itemView.findViewById(R.id.taskDateTextView);\r\n            itemView.setOnClickListener(this);\r\n\r\n            linearLayout = (LinearLayout)itemView.findViewById(R.id.TaskLinearLayout);\r\n\r\n        }\r\n\r\n        @Override\r\n        public void onClick(View v) {\r\n            listener.onClick(v, getAdapterPosition());\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/io_app/GroupListAdapter.java	(revision e3abad2141335cf7d802da97041e1a3c89e5d3e6)
++++ app/src/main/java/com/example/io_app/GroupListAdapter.java	(date 1622989748084)
+@@ -50,7 +50,7 @@
+     @Override
+     public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {
+ 
+-       TaskDB task = list.get(position);
++        TaskDB task = list.get(position);
+         holder.taskName.setText(task.getTaskName());
+         if (task.getTaskDay() < 10){
+             holder.taskTime.setText("0" + task.getTaskDay() + "." + task.getTaskMonth());
+@@ -103,4 +103,4 @@
+             listener.onClick(v, getAdapterPosition());
+         }
+     }
+-}
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/io_app/GroupList.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.io_app;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.TextView;\r\n\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.ValueEventListener;\r\n\r\nimport org.jetbrains.annotations.NotNull;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class GroupList extends AppCompatActivity {\r\n\r\n    DatabaseReference databaseReference;\r\n    DatabaseReference databaseReferenceGroupName;\r\n    Button seeCoworkers;\r\n    FirebaseUser user;\r\n    RecyclerView recyclerView;\r\n    ArrayList<TaskDB> list;\r\n    GroupListAdapter adapter;\r\n    TaskDB task;\r\n    String uID, grpName;\r\n    GroupListAdapter.RecyclerViewClickListener listener;\r\n    TextView groupNameTextV,seeFellowsTextV;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.group_list_view);\r\n\r\n        recyclerView = findViewById(R.id.taskRecyclerview);\r\n        user = FirebaseAuth.getInstance().getCurrentUser();\r\n       // uID = user.getUid();\r\n        uID = \"Ksi3OapCfrQYLrHJKdmkn7k5shx2\";\r\n        databaseReference = FirebaseDatabase.getInstance().getReference().child(\"Users\").child(uID).child(\"Tasks\");\r\n        databaseReferenceGroupName = FirebaseDatabase.getInstance().getReference().child(\"Users\").child(uID).child(\"group\");\r\n        recyclerView.setHasFixedSize(true);\r\n        recyclerView.setLayoutManager(new LinearLayoutManager(this));\r\n        groupNameTextV = findViewById(R.id.groupNameTextView);\r\n        seeFellowsTextV = findViewById(R.id.seeFellows);\r\n        seeFellowsTextV.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.fellows_icon,0);\r\n        setOnClickListener();\r\n\r\n        list = new ArrayList<>();\r\n\r\n        adapter = new GroupListAdapter(this, list, listener);\r\n        recyclerView.setAdapter(adapter);\r\n\r\n\r\n        databaseReference.addValueEventListener(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {\r\n\r\n                for(DataSnapshot dataSnapshot: snapshot.getChildren()){\r\n\r\n                    task = dataSnapshot.getValue(TaskDB.class);\r\n                        list.add(task);\r\n                }\r\n                adapter.notifyDataSetChanged();\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(@NonNull @NotNull DatabaseError error) {\r\n\r\n            }\r\n        });\r\n\r\n        databaseReferenceGroupName.addListenerForSingleValueEvent(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {\r\n                grpName = snapshot.getValue(String.class);\r\n                groupNameTextV.setText(grpName);\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(@NonNull @NotNull DatabaseError error) {\r\n\r\n            }\r\n        });\r\n\r\n        seeFellowsTextV.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent intent;\r\n            }\r\n        });\r\n\r\n    }\r\n\r\n      private void setOnClickListener() {\r\n        listener = new GroupListAdapter.RecyclerViewClickListener() {\r\n            @Override\r\n            public void onClick(View v, int position) {\r\n\r\n            }\r\n        };\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/io_app/GroupList.java	(revision e3abad2141335cf7d802da97041e1a3c89e5d3e6)
++++ app/src/main/java/com/example/io_app/GroupList.java	(date 1622989786689)
+@@ -5,11 +5,9 @@
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
+-import android.content.Intent;
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.Button;
+-import android.widget.TextView;
+ 
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseUser;
+@@ -27,16 +25,14 @@
+ public class GroupList extends AppCompatActivity {
+ 
+     DatabaseReference databaseReference;
+-    DatabaseReference databaseReferenceGroupName;
+     Button seeCoworkers;
+     FirebaseUser user;
+     RecyclerView recyclerView;
+     ArrayList<TaskDB> list;
+     GroupListAdapter adapter;
+     TaskDB task;
+-    String uID, grpName;
++    String uID;
+     GroupListAdapter.RecyclerViewClickListener listener;
+-    TextView groupNameTextV,seeFellowsTextV;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -45,15 +41,11 @@
+ 
+         recyclerView = findViewById(R.id.taskRecyclerview);
+         user = FirebaseAuth.getInstance().getCurrentUser();
+-       // uID = user.getUid();
+-        uID = "Ksi3OapCfrQYLrHJKdmkn7k5shx2";
++        uID = user.getUid();
+         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("Tasks");
+-        databaseReferenceGroupName = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("group");
+         recyclerView.setHasFixedSize(true);
+         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+-        groupNameTextV = findViewById(R.id.groupNameTextView);
+-        seeFellowsTextV = findViewById(R.id.seeFellows);
+-        seeFellowsTextV.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.fellows_icon,0);
++
+         setOnClickListener();
+ 
+         list = new ArrayList<>();
+@@ -70,6 +62,7 @@
+ 
+                     task = dataSnapshot.getValue(TaskDB.class);
+                         list.add(task);
++
+                 }
+                 adapter.notifyDataSetChanged();
+             }
+@@ -79,27 +72,6 @@
+ 
+             }
+         });
+-
+-        databaseReferenceGroupName.addListenerForSingleValueEvent(new ValueEventListener() {
+-            @Override
+-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+-                grpName = snapshot.getValue(String.class);
+-                groupNameTextV.setText(grpName);
+-            }
+-
+-            @Override
+-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+-
+-            }
+-        });
+-
+-        seeFellowsTextV.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                Intent intent;
+-            }
+-        });
+-
+     }
+ 
+       private void setOnClickListener() {
+Index: app/src/main/java/com/example/io_app/GroupUserList.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.io_app;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport com.example.io_app.adapter.UserAdapter;\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.ValueEventListener;\r\n\r\nimport org.jetbrains.annotations.NotNull;\r\n\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class GroupUserList extends AppCompatActivity{\r\n\r\n    RecyclerView recyclerView;\r\n    UserAdapter userAdapter;\r\n    DatabaseReference databaseReference;\r\n    String temp;\r\n    List<UserDB> members;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.group_user_list_view);\r\n\r\n        recyclerView = findViewById(R.id.groupUserListRecyclerView);\r\n        recyclerView.setLayoutManager(new LinearLayoutManager(this));\r\n\r\n        members = new ArrayList<>();\r\n\r\n        databaseReference = FirebaseDatabase.getInstance().getReference(\"members\");\r\n\r\n        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {\r\n                for (DataSnapshot ds:snapshot.getChildren()){\r\n                    temp = ds.getValue(String.class);\r\n                    UserDB data = new UserDB();\r\n\r\n                    members.add(data);\r\n                }\r\n                userAdapter =new UserAdapter(members);\r\n                recyclerView.setAdapter(userAdapter);\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(@NonNull @NotNull DatabaseError error) {\r\n\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/io_app/GroupUserList.java	(revision e3abad2141335cf7d802da97041e1a3c89e5d3e6)
++++ app/src/main/java/com/example/io_app/GroupUserList.java	(date 1622989786837)
+@@ -28,6 +28,12 @@
+     String temp;
+     List<UserDB> members;
+ 
++    RecyclerView recyclerView;
++    UserAdapter userAdapter;
++    DatabaseReference databaseReference;
++    String temp;
++    List<UserDB> members;
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+Index: app/src/main/res/drawable-anydpi/fellows_icon.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:width=\"24dp\"\r\n    android:height=\"24dp\"\r\n    android:viewportWidth=\"24\"\r\n    android:viewportHeight=\"24\"\r\n    android:tint=\"#33B5E5\"\r\n    android:alpha=\"0.8\">\r\n  <group android:scaleX=\"1.1111112\"\r\n      android:scaleY=\"1.1111112\"\r\n      android:translateX=\"-1.3333334\"\r\n      android:translateY=\"-1.3333334\">\r\n    <path\r\n        android:fillColor=\"@android:color/white\"\r\n        android:pathData=\"M16,11c1.66,0 2.99,-1.34 2.99,-3S17.66,5 16,5c-1.66,0 -3,1.34 -3,3s1.34,3 3,3zM8,11c1.66,0 2.99,-1.34 2.99,-3S9.66,5 8,5C6.34,5 5,6.34 5,8s1.34,3 3,3zM8,13c-2.33,0 -7,1.17 -7,3.5L1,19h14v-2.5c0,-2.33 -4.67,-3.5 -7,-3.5zM16,13c-0.29,0 -0.62,0.02 -0.97,0.05 1.16,0.84 1.97,1.97 1.97,3.45L17,19h6v-2.5c0,-2.33 -4.67,-3.5 -7,-3.5z\"/>\r\n  </group>\r\n</vector>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable-anydpi/fellows_icon.xml	(revision e3abad2141335cf7d802da97041e1a3c89e5d3e6)
++++ app/src/main/res/drawable-anydpi/fellows_icon.xml	(date 1622989786853)
+@@ -5,12 +5,7 @@
+     android:viewportHeight="24"
+     android:tint="#33B5E5"
+     android:alpha="0.8">
+-  <group android:scaleX="1.1111112"
+-      android:scaleY="1.1111112"
+-      android:translateX="-1.3333334"
+-      android:translateY="-1.3333334">
+-    <path
+-        android:fillColor="@android:color/white"
+-        android:pathData="M16,11c1.66,0 2.99,-1.34 2.99,-3S17.66,5 16,5c-1.66,0 -3,1.34 -3,3s1.34,3 3,3zM8,11c1.66,0 2.99,-1.34 2.99,-3S9.66,5 8,5C6.34,5 5,6.34 5,8s1.34,3 3,3zM8,13c-2.33,0 -7,1.17 -7,3.5L1,19h14v-2.5c0,-2.33 -4.67,-3.5 -7,-3.5zM16,13c-0.29,0 -0.62,0.02 -0.97,0.05 1.16,0.84 1.97,1.97 1.97,3.45L17,19h6v-2.5c0,-2.33 -4.67,-3.5 -7,-3.5z"/>
+-  </group>
++  <path
++      android:fillColor="@android:color/white"
++      android:pathData="M16,11c1.66,0 2.99,-1.34 2.99,-3S17.66,5 16,5c-1.66,0 -3,1.34 -3,3s1.34,3 3,3zM8,11c1.66,0 2.99,-1.34 2.99,-3S9.66,5 8,5C6.34,5 5,6.34 5,8s1.34,3 3,3zM8,13c-2.33,0 -7,1.17 -7,3.5L1,19h14v-2.5c0,-2.33 -4.67,-3.5 -7,-3.5zM16,13c-0.29,0 -0.62,0.02 -0.97,0.05 1.16,0.84 1.97,1.97 1.97,3.45L17,19h6v-2.5c0,-2.33 -4.67,-3.5 -7,-3.5z"/>
+ </vector>
