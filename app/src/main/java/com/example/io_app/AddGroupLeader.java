@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,6 +73,10 @@ public class AddGroupLeader extends AppCompatActivity {
                 GroupDB group = new GroupDB(groupNm, leader.getId(),usersSet);
 
                 ref.child(groupNm).setValue(group);
+
+                Toast.makeText(AddGroupLeader.this, "Grupa została utworzona!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),HomeWindow.class);
+                startActivity(intent);
 
             }
         });
