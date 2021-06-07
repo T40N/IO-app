@@ -32,7 +32,7 @@ public class CalendarWeek extends Fragment implements MonthLoader.MonthChangeLis
         weekView = (WeekView) view.findViewById(R.id.weekView);
         Calendar today = Calendar.getInstance();
         Calendar lastDay = (Calendar) today.clone();
-        lastDay.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH) + 6);
+        lastDay.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH) + 30);
 
         weekView.setEmptyViewClickListener(this);
         weekView.setMonthChangeListener(this);
@@ -46,18 +46,30 @@ public class CalendarWeek extends Fragment implements MonthLoader.MonthChangeLis
     @Nullable
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        List <WeekViewEvent> events = (List<WeekViewEvent>) WeekViewLoader.loadEvents(newYear,newMonth);
-
-        return events;
+        List<WeekViewEvent> matchingTasks = new ArrayList<>();
+        for(WeekViewEvent task : Login.userTasks){
+            if(eventMatches(task, newYear, newMonth)){
+                matchingTasks.add(task);
+            }
+        }
+        return matchingTasks;
     }
 
     @Override
     public void onEmptyViewClicked(@NotNull Calendar calendar) {
-        Toast.makeText(getActivity(), "Brak wydarzeń w tym czasie", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onEventClick(@NotNull WeekViewEvent weekViewEvent, @NotNull RectF rectF) {
-        Toast.makeText(getActivity(), weekViewEvent.getName(), Toast.LENGTH_SHORT).show();
+
+    }
+
+    private static boolean eventMatches(WeekViewEvent event, int year, int month){
+        if(event.getStartTime().get(Calendar.YEAR) == year && event.getStartTime().get(Calendar.MONTH) == month - 1){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

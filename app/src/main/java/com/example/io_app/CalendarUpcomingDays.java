@@ -29,7 +29,7 @@ public class CalendarUpcomingDays extends Fragment implements MonthLoader.MonthC
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.calendar_upcoming_days_view, container, false);
-        weekView = (WeekView) view.findViewById(R.id.threeDaysView);
+        weekView = (WeekView) view.findViewById(R.id.upcomingDaysView);
         Calendar today = Calendar.getInstance();
         Calendar lastDay = (Calendar) today.clone();
         lastDay.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH) + 2);
@@ -46,17 +46,30 @@ public class CalendarUpcomingDays extends Fragment implements MonthLoader.MonthC
     @Nullable
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        List <WeekViewEvent> events = (List<WeekViewEvent>) WeekViewLoader.loadEvents(newYear,newMonth);
-        return events;
+        List<WeekViewEvent> matchingTasks = new ArrayList<>();
+        for(WeekViewEvent task : Login.userTasks){
+            if(eventMatches(task, newYear, newMonth)){
+                matchingTasks.add(task);
+            }
+        }
+        return matchingTasks;
     }
 
     @Override
     public void onEmptyViewClicked(@NotNull Calendar calendar) {
-        Toast.makeText(getActivity(), "Brak wydarzeń w tym czasie", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onEventClick(@NotNull WeekViewEvent weekViewEvent, @NotNull RectF rectF) {
-        Toast.makeText(getActivity(), weekViewEvent.getName(), Toast.LENGTH_SHORT).show();
+
+    }
+
+    private static boolean eventMatches(WeekViewEvent event, int year, int month){
+        if(event.getStartTime().get(Calendar.YEAR) == year && event.getStartTime().get(Calendar.MONTH) == month - 1){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

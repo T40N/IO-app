@@ -32,6 +32,8 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.io_app.placeholder.CustomSpinnerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,6 +58,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
     Button btnAccept;
     int taskHour, taskMinute, taskDay, taskMonth, taskYear;
     DatabaseReference dbRef;
+    FirebaseUser currentUser;
     Spinner spinner;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -78,9 +81,8 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        groupName = "crash";    //tu bedzie pobierana wartosc z poprzedniego activity
+        groupName = "Toast";    //tu bedzie pobierana wartosc z poprzedniego activity
 
-        retrieveMembers();
         groupNameLabel = findViewById(R.id.tV_groupName);
         groupNameLabel.setText(groupName);
         taskName = findViewById(R.id.txt_title_change);
@@ -94,6 +96,8 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
         btnTime.setOnClickListener(this);
         btnAccept = findViewById(R.id.btn_add_task);
         btnAccept.setOnClickListener(this);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     @Override
@@ -113,7 +117,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
                 startActivity(intent);
                 break;
             case R.id.calendar:
-                intent = new Intent(AddTask.this,Calendar.class);
+                intent = new Intent(AddTask.this, Calendar.class);
                 startActivity(intent);
                 break;
             case R.id.groups:
@@ -208,6 +212,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
                 Toast.makeText(AddTask.this,"Błąd odczytu z bazy danych", Toast.LENGTH_LONG).show();
             }
         });
+
         return memberArray;
     }
 
@@ -218,6 +223,9 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users/" + member.getId());
         dbRef.child("Tasks").push().setValue(newTask);
+        if(member.getId() == currentUser.getUid()){
+            Login.userTasks.add(newTask.toWeekViewEvent());
+        }
         Toast.makeText(this, "Dodano nowe zadanie", Toast.LENGTH_SHORT).show();
     }
 }

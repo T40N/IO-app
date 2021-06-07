@@ -8,9 +8,6 @@
         android:id="@+id/upcomingDaysView"
         android:title="najbliższe dni" />
     <item
-        android:id="@+id/threeDaysView"
-        android:title="tydzień" />
-    <item
         android:id="@+id/monthView"
         android:title="miesiąc" />
 </menu>

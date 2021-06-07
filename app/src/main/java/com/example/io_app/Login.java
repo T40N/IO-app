@@ -10,18 +10,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alamkanak.weekview.WeekViewEvent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
+    public static ArrayList<WeekViewEvent> userTasks = new ArrayList<>();
     private Button register, login;
     private EditText email, password;
     private FirebaseAuth mAuth;
@@ -92,11 +101,31 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    retrieveTasks();
                     startActivity(new Intent(Login.this, UserProfile.class));
                 }else{
                     Toast.makeText(Login.this, "Logowanie niepowiodło się! Sprawdź podane dane.", Toast.LENGTH_LONG).show();
                 }
                 progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    void retrieveTasks(){
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid()+"/Tasks");
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for(DataSnapshot postSnapshot : snapshot.getChildren()){
+                    WeekViewEvent task = postSnapshot.getValue(TaskDB.class).toWeekViewEvent();
+                    userTasks.add(task);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
             }
         });
     }
