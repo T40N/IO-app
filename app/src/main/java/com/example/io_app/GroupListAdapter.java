@@ -45,22 +45,8 @@ public class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.MyVi
         return new MyViewHolder(v);
     }
 
-
-
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {
-
-       TaskDB task = list.get(position);
-        holder.taskName.setText(task.getTaskName());
-        holder.taskTime.setText(task.getDateTime().toString());
-
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
 
     }
 

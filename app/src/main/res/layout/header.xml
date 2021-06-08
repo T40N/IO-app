@@ -16,4 +16,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_face_24" />
 
+    <TextView
+        android:id="@+id/nameOnMenuID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="TextView"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head" />
+
+    <TextView
+        android:id="@+id/onlineIndicID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="TextView"
+        android:textColor="@color/available"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameOnMenuID" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

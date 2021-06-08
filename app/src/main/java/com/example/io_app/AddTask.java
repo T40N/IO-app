@@ -68,19 +68,6 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_task_view);
-        drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
-        navigationView = findViewById(R.id.navigation_view);
-        toolbar = findViewById(R.id.toolbar);
-
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.Open,R.string.Close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
         groupName = "Toast";    //tu bedzie pobierana wartosc z poprzedniego activity
 
         groupNameLabel = findViewById(R.id.tV_groupName);
@@ -98,6 +85,31 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
         btnAccept.setOnClickListener(this);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
+        navigationView = findViewById(R.id.navigation_view);
+        toolbar = findViewById(R.id.toolbar);
+
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.Open,R.string.Close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+
+
+        if(currentUser != null){
+            String[] fullName = currentUser.getDisplayName().split(" ");
+
+            TextView navName = headerView.findViewById(R.id.nameOnMenuID);
+            navName.setText(fullName[0] + " " + fullName[1]);
+            TextView onlineText = headerView.findViewById(R.id.onlineIndicID);
+            onlineText.setText("Online");
+        }
     }
 
     @Override
@@ -113,7 +125,11 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_view:
-                Intent intent = new Intent(AddTask.this,UserProfile.class);
+                Intent intent = new Intent(AddTask.this,HomeWindow.class);
+                startActivity(intent);
+                break;
+            case R.id.profile:
+                intent = new Intent(AddTask.this,UserProfile.class);
                 startActivity(intent);
                 break;
             case R.id.calendar:
@@ -121,7 +137,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
                 startActivity(intent);
                 break;
             case R.id.groups:
-                intent = new Intent(AddTask.this, AddGroup.class);
+                intent = new Intent(AddTask.this, GroupList.class);
                 startActivity(intent);
                 break;
             case R.id.tasks:
@@ -129,6 +145,11 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
                 break;
             case R.id.chat:
                 intent = new Intent(AddTask.this, ChatList.class);
+                startActivity(intent);
+                break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                intent = new Intent(AddTask.this, Login.class);
                 startActivity(intent);
                 break;
             default:

@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.Navigation;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 import androidx.appcompat.widget.Toolbar;
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,6 +31,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,9 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if(currentUser != null){
@@ -59,6 +65,11 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             userName.setText(fullName[0]);
             userSurname.setText(fullName[1]);
             userEmail.setText(email);
+
+            TextView navName = headerView.findViewById(R.id.nameOnMenuID);
+            navName.setText(fullName[0] + " " + fullName[1]);
+            TextView onlineText = headerView.findViewById(R.id.onlineIndicID);
+            onlineText.setText("Online");
         }
 
     }
@@ -76,14 +87,18 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_view:
+                Intent intent = new Intent(UserProfile.this,HomeWindow.class);
+                startActivity(intent);
+                break;
+            case R.id.profile:
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.calendar:
-                Intent intent = new Intent(UserProfile.this,Calendar.class);
+                intent = new Intent(UserProfile.this,Calendar.class);
                 startActivity(intent);
                 break;
             case R.id.groups:
-                intent = new Intent(UserProfile.this, AddGroup.class);
+                intent = new Intent(UserProfile.this, GroupList.class);
                 startActivity(intent);
                 break;
             case R.id.tasks:
@@ -92,6 +107,11 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 break;
             case R.id.chat:
                 intent = new Intent(UserProfile.this, ChatList.class);
+                startActivity(intent);
+                break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                intent = new Intent(UserProfile.this, Login.class);
                 startActivity(intent);
                 break;
             default:
