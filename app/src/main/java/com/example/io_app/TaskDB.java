@@ -28,9 +28,15 @@ public class TaskDB {
     public TaskDB () {}
 
     public WeekViewEvent toWeekViewEvent(){
-        Calendar taskDate = new GregorianCalendar(taskYear,taskMonth,taskDay,taskHour,taskMinute);
-        Calendar startTime = (Calendar) taskDate.clone();
+        //Calendar taskDate = new GregorianCalendar(taskYear,taskMonth,taskDay,taskHour,taskMinute);
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, taskHour);
+        startTime.set(Calendar.MINUTE, taskMinute);
+        startTime.set(Calendar.MONTH, taskMonth-1);
+        startTime.set(Calendar.YEAR, taskYear);
+        startTime.set(Calendar.DAY_OF_MONTH, taskDay);
         Calendar endTime = (Calendar) startTime.clone();
+        endTime.set(Calendar.MONTH, taskMonth-1);
         endTime.set(Calendar.HOUR_OF_DAY,startTime.get(Calendar.HOUR_OF_DAY) + 1);
         return new WeekViewEvent(this.taskName, this.taskName,startTime,endTime);
     }

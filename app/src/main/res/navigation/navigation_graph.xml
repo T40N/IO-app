@@ -15,13 +15,8 @@
         android:label="fragment_upcoming_days_view"
         tools:layout="@layout/calendar_upcoming_days_view" />
     <fragment
-        android:id="@+id/threeDaysView"
+        android:id="@+id/monthView"
         android:name="com.example.io_app.CalendarWeek"
         android:label="fragment_week_view"
         tools:layout="@layout/calendar_week_view" />
-    <fragment
-        android:id="@+id/monthView"
-        android:name="com.example.io_app.CalendarMonth"
-        android:label="fragment_month_view"
-        tools:layout="@layout/calendar_month_view" />
 </navigation>

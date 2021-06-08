@@ -3,6 +3,7 @@ package com.example.io_app;
 import android.graphics.RectF;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,13 @@ import android.widget.Toast;
 import com.alamkanak.weekview.MonthLoader;
 import com.alamkanak.weekview.WeekView;
 import com.alamkanak.weekview.WeekViewEvent;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,8 +31,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class CalendarDay extends Fragment implements MonthLoader.MonthChangeListener, WeekView.EventClickListener, WeekView.EmptyViewClickListener{
-private WeekView weekView;
-
+    private WeekView weekView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,17 +53,31 @@ private WeekView weekView;
     @Nullable
     @Override
     public List<? extends WeekViewEvent> onMonthChange(int newYear, int newMonth) {
-        List <WeekViewEvent> events = (List<WeekViewEvent>) WeekViewLoader.loadEvents(newYear,newMonth);
-        return events;
+        List<WeekViewEvent> matchingTasks = new ArrayList<>();
+        for(WeekViewEvent task : Login.userTasks){
+            if(eventMatches(task, newYear, newMonth)){
+                matchingTasks.add(task);
+            }
+        }
+        return matchingTasks;
     }
 
     @Override
     public void onEmptyViewClicked(@NotNull Calendar calendar) {
-        Toast.makeText(getActivity(), "Brak wydarzeń w tym czasie", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onEventClick(@NotNull WeekViewEvent weekViewEvent, @NotNull RectF rectF) {
-        Toast.makeText(getActivity(), weekViewEvent.getName(), Toast.LENGTH_SHORT).show();
+
     }
+
+    private static boolean eventMatches(WeekViewEvent event, int year, int month){
+        if(event.getStartTime().get(Calendar.YEAR) == year && event.getStartTime().get(Calendar.MONTH) == month - 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

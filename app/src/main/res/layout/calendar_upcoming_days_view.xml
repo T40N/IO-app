@@ -7,12 +7,12 @@
     tools:context=".CalendarUpcomingDays">
 
     <com.alamkanak.weekview.WeekView
-        android:id="@+id/threeDaysView"
+        android:id="@+id/upcomingDaysView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:columnGap="@dimen/columnGap"
         app:dayBackgroundColor="#05000000"
-        app:dayNameLength="length_short"
+        app:dayNameLength="length_long"
         app:eventTextColor="@android:color/white"
         app:headerColumnPadding="@dimen/columnGap"
         app:headerColumnTextColor="#8f000000"
