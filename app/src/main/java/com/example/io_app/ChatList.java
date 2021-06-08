@@ -15,6 +15,8 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.io_app.adapter.UserAdapter;
 
@@ -31,6 +33,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ChatList extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +42,7 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
     RecyclerView recyclerView;
     UserAdapter userAdapter;
 
+    FirebaseUser currentUser;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -93,6 +97,19 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
 
             }
         });
+
+        View headerView = navigationView.getHeaderView(0);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(currentUser != null){
+            String[] fullName = currentUser.getDisplayName().split(" ");
+
+            TextView navName = headerView.findViewById(R.id.nameOnMenuID);
+            navName.setText(fullName[0] + " " + fullName[1]);
+            TextView onlineText = headerView.findViewById(R.id.onlineIndicID);
+            onlineText.setText("Online");
+        }
     }
 
 
@@ -109,15 +126,19 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_view:
-                Intent intent = new Intent(ChatList.this,UserProfile.class);
+                Intent intent = new Intent(ChatList.this,HomeWindow.class);
+                startActivity(intent);
+                break;
+            case R.id.profile:
+                intent = new Intent(ChatList.this,UserProfile.class);
                 startActivity(intent);
                 break;
             case R.id.calendar:
-                intent = new Intent(ChatList.this,Calendar.class);
+                intent = new Intent(ChatList.this, Calendar.class);
                 startActivity(intent);
                 break;
             case R.id.groups:
-                intent = new Intent(ChatList.this, AddGroup.class);
+                intent = new Intent(ChatList.this, GroupList.class);
                 startActivity(intent);
                 break;
             case R.id.tasks:
@@ -126,6 +147,11 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.chat:
                 drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                intent = new Intent(ChatList.this, Login.class);
+                startActivity(intent);
                 break;
             default:
                 break;

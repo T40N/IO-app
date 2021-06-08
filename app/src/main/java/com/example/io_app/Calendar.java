@@ -13,9 +13,13 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,6 +29,7 @@ public class Calendar extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,19 @@ public class Calendar extends AppCompatActivity implements NavigationView.OnNavi
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        View headerView = navigationView.getHeaderView(0);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(currentUser != null){
+            String[] fullName = currentUser.getDisplayName().split(" ");
+
+            TextView navName = headerView.findViewById(R.id.nameOnMenuID);
+            navName.setText(fullName[0] + " " + fullName[1]);
+            TextView onlineText = headerView.findViewById(R.id.onlineIndicID);
+            onlineText.setText("Online");
+        }
     }
 
     @Override
@@ -63,15 +81,18 @@ public class Calendar extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_view:
-
-                Intent intent = new Intent(Calendar.this,UserProfile.class);
+                Intent intent = new Intent(Calendar.this,HomeWindow.class);
+                startActivity(intent);
+                break;
+            case R.id.profile:
+                intent = new Intent(Calendar.this,UserProfile.class);
                 startActivity(intent);
                 break;
             case R.id.calendar:
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.groups:
-                intent = new Intent(Calendar.this, AddGroup.class);
+                intent = new Intent(Calendar.this, GroupList.class);
                 startActivity(intent);
                 break;
             case R.id.tasks:
@@ -80,6 +101,11 @@ public class Calendar extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.chat:
                 intent = new Intent(Calendar.this, ChatList.class);
+                startActivity(intent);
+                break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                intent = new Intent(Calendar.this, Login.class);
                 startActivity(intent);
                 break;
             default:
