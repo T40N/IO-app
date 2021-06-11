@@ -6,19 +6,19 @@
     android:layout_height="wrap_content"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp"
+    android:layout_margin="8dp"
     >
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_goneMarginLeft="16dp"
         android:id="@+id/TaskLinearLayout">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
@@ -26,25 +26,22 @@
             <TextView
                 android:id="@+id/taskNameTextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="task name  "
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:text="task name   "
                 style = "@style/textBlueSmall"
                 ></TextView>
             <TextView
                 android:id="@+id/taskDateTextView"
-                android:layout_width="match_parent"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:text="name"
-                style = "@style/textGrey"
+                style = "@style/textGreySmall"
                 ></TextView>
         </LinearLayout>
 
 
 
-
     </LinearLayout>
-
-
-
 
 </androidx.cardview.widget.CardView>
