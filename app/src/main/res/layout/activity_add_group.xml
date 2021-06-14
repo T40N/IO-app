@@ -36,7 +36,8 @@
         app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style = "@style/textMedium"/>
+        style = "@style/textMedium"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/nextBtn"

@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyViewHolder> {
-    int row_index = -1;
+    Set<Integer> row_index = new HashSet<Integer>();
     UserDB user;
     Context context;
     ArrayList<UserDB> list;
@@ -66,19 +66,22 @@ public class AddGroupAdapter extends RecyclerView.Adapter<AddGroupAdapter.MyView
             @Override
             public void onClick(View view) {
 
-                row_index=position;
+                row_index.add(position);
+                System.out.println(position);
                 set.add(user);
                 notifyDataSetChanged();
+
             }
         });
 
-        if (row_index == position) {                          //DO POPRAWY ODZNACZANIE!!!!!!!
+        if (row_index.contains(position)) {                          //DO POPRAWY ODZNACZANIE!!!!!!!
             holder.linearLayout.setBackgroundColor(Color.RED);
+
         }
 
-            /*else {
+        else {
             holder.linearLayout.setBackgroundColor(Color.parseColor("#dddddd"));
-        }*/
+        }
 
 
     }
