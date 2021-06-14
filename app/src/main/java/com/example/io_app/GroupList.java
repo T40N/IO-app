@@ -45,8 +45,8 @@ public class GroupList extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.taskRecyclerview);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        uID = user.getUid();
-        //uID = "Ksi3OapCfrQYLrHJKdmkn7k5shx2";
+        // uID = user.getUid();
+        uID = "Ksi3OapCfrQYLrHJKdmkn7k5shx2";
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("Tasks");
         databaseReferenceGroupName = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("group");
         recyclerView.setHasFixedSize(true);
