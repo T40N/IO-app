@@ -134,7 +134,7 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(intent);
                 break;
             case R.id.calendar:
-                intent = new Intent(ChatList.this, Calendar.class);
+                intent = new Intent(ChatList.this, CalendarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.groups:
@@ -149,6 +149,9 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.logout:
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+                dbRef.child("status").setValue(false);
                 FirebaseAuth.getInstance().signOut();
                 intent = new Intent(ChatList.this, Login.class);
                 startActivity(intent);

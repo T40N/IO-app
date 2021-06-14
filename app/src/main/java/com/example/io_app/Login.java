@@ -31,6 +31,7 @@ import java.util.ArrayList;
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
     public static ArrayList<WeekViewEvent> userTasks = new ArrayList<>();
+    public static UserDB loggedUser;
     private Button register, login;
     private EditText email, password;
     private FirebaseAuth mAuth;
@@ -102,6 +103,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     retrieveTasks();
+                    retrieveUser();
+                    changeStatus();
                     startActivity(new Intent(Login.this, HomeWindow.class));
                 }else{
                     Toast.makeText(Login.this, "Logowanie niepowiodło się! Sprawdź podane dane.", Toast.LENGTH_LONG).show();
@@ -128,5 +131,27 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             }
         });
+    }
+
+    void retrieveUser(){
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                loggedUser = snapshot.getValue(UserDB.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    void changeStatus(){
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+        dbRef.child("status").setValue(true);
     }
 }

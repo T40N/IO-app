@@ -24,11 +24,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupList extends AppCompatActivity {
+public class GroupList extends AppCompatActivity implements View.OnClickListener {
 
     DatabaseReference databaseReference;
     DatabaseReference databaseReferenceGroupName;
-    Button seeCoworkers;
+    Button newTask;
+    Button newGroup;
     FirebaseUser user;
     RecyclerView recyclerView;
     ArrayList<TaskDB> list;
@@ -45,16 +46,26 @@ public class GroupList extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.taskRecyclerview);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        // uID = user.getUid();
-        uID = "Ksi3OapCfrQYLrHJKdmkn7k5shx2";
+        uID = user.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("Tasks");
         databaseReferenceGroupName = FirebaseDatabase.getInstance().getReference().child("Users").child(uID).child("group");
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         groupNameTextV = findViewById(R.id.groupNameTextView);
-        seeFellowsTextV = findViewById(R.id.seeFellows);
-        seeFellowsTextV.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.fellows_icon,0);
-        setOnClickListener();
+        //seeFellowsTextV = findViewById(R.id.seeFellows);
+        //seeFellowsTextV.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.fellows_icon,0);
+        //setOnClickListener();
+
+        newGroup = findViewById(R.id.btn_createGroup);
+        newGroup.setOnClickListener(this);
+        if(!Login.loggedUser.getUserType().equals("administrator")){
+            newGroup.setVisibility(View.INVISIBLE);
+        }
+
+        newTask = findViewById(R.id.btn_addTask);
+        newTask.setOnClickListener(this);
+
 
         list = new ArrayList<>();
 
@@ -93,24 +104,36 @@ public class GroupList extends AppCompatActivity {
             }
         });
 
-        seeFellowsTextV.setOnClickListener(new View.OnClickListener() {
+
+        /*seeFellowsTextV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GroupUserList.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 
-    private void setOnClickListener() {
+    /*private void setOnClickListener() {
         listener = new GroupListAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View v, int position) {
 
             }
         };
+    }*/
+
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btn_createGroup){
+            Intent intent = new Intent(GroupList.this, AddGroup.class);
+            startActivity(intent);
+        }
+        if(v.getId() == R.id.btn_addTask){
+            Intent intent = new Intent(GroupList.this, AddTask.class);
+            startActivity(intent);
+        }
     }
-
-
 }

@@ -5,21 +5,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.Navigation;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+
 import androidx.appcompat.widget.Toolbar;
 
-import com.firebase.ui.auth.AuthUI;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -94,7 +93,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.calendar:
-                intent = new Intent(UserProfile.this,Calendar.class);
+                intent = new Intent(UserProfile.this, CalendarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.groups:
@@ -110,6 +109,9 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 startActivity(intent);
                 break;
             case R.id.logout:
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+                dbRef.child("status").setValue(false);
                 FirebaseAuth.getInstance().signOut();
                 intent = new Intent(UserProfile.this, Login.class);
                 startActivity(intent);

@@ -15,18 +15,15 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -39,14 +36,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class AddTask extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
@@ -68,7 +60,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_task_view);
-        groupName = "Toast";    //tu bedzie pobierana wartosc z poprzedniego activity
+        groupName = Login.loggedUser.getGroup();
 
         groupNameLabel = findViewById(R.id.tV_groupName);
         groupNameLabel.setText(groupName);
@@ -133,7 +125,7 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
                 startActivity(intent);
                 break;
             case R.id.calendar:
-                intent = new Intent(AddTask.this, Calendar.class);
+                intent = new Intent(AddTask.this, CalendarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.groups:
@@ -148,6 +140,9 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
                 startActivity(intent);
                 break;
             case R.id.logout:
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+                dbRef.child("status").setValue(false);
                 FirebaseAuth.getInstance().signOut();
                 intent = new Intent(AddTask.this, Login.class);
                 startActivity(intent);

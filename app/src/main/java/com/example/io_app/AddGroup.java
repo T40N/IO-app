@@ -96,7 +96,7 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener,
                 startActivity(intent);
                 break;
             case R.id.calendar:
-                intent = new Intent(AddGroup.this,Calendar.class);
+                intent = new Intent(AddGroup.this, CalendarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.groups:

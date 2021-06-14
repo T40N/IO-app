@@ -78,7 +78,7 @@
 
 
 
-        <activity android:name=".Calendar" android:exported="true"/>
+        <activity android:name=".CalendarActivity"/>
 
         <activity
             android:name=".Register"

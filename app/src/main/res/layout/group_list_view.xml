@@ -24,11 +24,10 @@
         style="@style/textGreyMedium"
         android:layout_width="151dp"
         android:layout_height="26dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="76dp"
         android:text="TextView"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskGroupsTextView" />
 
@@ -37,12 +36,11 @@
         style="@style/textGreySmall"
         android:layout_width="231dp"
         android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:text="@string/taskToDo"
 
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupNameTextView" />
 
@@ -50,22 +48,48 @@
         android:id="@+id/taskRecyclerview"
         android:layout_width="159dp"
         android:layout_height="135dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tasktToDoTextView" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/seeFellows"
+        style="@style/textBlueSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:clickable="true"
         android:text="@string/seeFellows"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskRecyclerview"
-        style= "@style/textBlueSmall"/>
+        app:layout_constraintTop_toBottomOf="@+id/taskRecyclerview" /> !-->
+
+    <Button
+        android:id="@+id/btn_createGroup"
+        style="@style/buttonWhiteStyle"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="32dp"
+        android:text="Nowa grupa"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/groupNameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskGroupsTextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_addTask"
+        style="@style/buttonWhiteStyle"
+        android:layout_width="128dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:text="Dodaj zadanie"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskRecyclerview" />
 </androidx.constraintlayout.widget.ConstraintLayout>

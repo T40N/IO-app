@@ -20,10 +20,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
-public class Calendar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class CalendarActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     BottomNavigationView bottomNavigationView;
     DrawerLayout drawerLayout;
@@ -81,31 +83,34 @@ public class Calendar extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_view:
-                Intent intent = new Intent(Calendar.this,HomeWindow.class);
+                Intent intent = new Intent(CalendarActivity.this,HomeWindow.class);
                 startActivity(intent);
                 break;
             case R.id.profile:
-                intent = new Intent(Calendar.this,UserProfile.class);
+                intent = new Intent(CalendarActivity.this,UserProfile.class);
                 startActivity(intent);
                 break;
             case R.id.calendar:
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.groups:
-                intent = new Intent(Calendar.this, GroupList.class);
+                intent = new Intent(CalendarActivity.this, GroupList.class);
                 startActivity(intent);
                 break;
             case R.id.tasks:
-                intent = new Intent(Calendar.this, AddTask.class);
+                intent = new Intent(CalendarActivity.this, AddTask.class);
                 startActivity(intent);
                 break;
             case R.id.chat:
-                intent = new Intent(Calendar.this, ChatList.class);
+                intent = new Intent(CalendarActivity.this, ChatList.class);
                 startActivity(intent);
                 break;
             case R.id.logout:
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+                dbRef.child("status").setValue(false);
                 FirebaseAuth.getInstance().signOut();
-                intent = new Intent(Calendar.this, Login.class);
+                intent = new Intent(CalendarActivity.this, Login.class);
                 startActivity(intent);
                 break;
             default:
