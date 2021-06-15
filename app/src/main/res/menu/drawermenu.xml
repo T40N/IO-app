@@ -22,11 +22,6 @@
         android:icon="@drawable/ic_baseline_group_24" />
 
     <item
-        android:id="@+id/tasks"
-        android:title="@string/zadania"
-        android:icon="@drawable/ic_baseline_check_box_24" />
-
-    <item
         android:id="@+id/chat"
         android:title="@string/chat"
         android:icon="@drawable/ic_baseline_chat_24" />

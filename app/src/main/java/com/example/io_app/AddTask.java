@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class AddTask extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class AddTask extends AppCompatActivity implements View.OnClickListener{
     String groupName;
     EditText taskName;
     TextView groupNameLabel;
@@ -52,9 +52,6 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
     DatabaseReference dbRef;
     FirebaseUser currentUser;
     Spinner spinner;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,82 +72,6 @@ public class AddTask extends AppCompatActivity implements View.OnClickListener, 
         btnTime.setOnClickListener(this);
         btnAccept = findViewById(R.id.btn_add_task);
         btnAccept.setOnClickListener(this);
-
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        drawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
-        navigationView = findViewById(R.id.navigation_view);
-        toolbar = findViewById(R.id.toolbar);
-
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.Open,R.string.Close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-
-        View headerView = navigationView.getHeaderView(0);
-
-
-        if(currentUser != null){
-            String[] fullName = currentUser.getDisplayName().split(" ");
-
-            TextView navName = headerView.findViewById(R.id.nameOnMenuID);
-            navName.setText(fullName[0] + " " + fullName[1]);
-            TextView onlineText = headerView.findViewById(R.id.onlineIndicID);
-            onlineText.setText("Online");
-        }
-    }
-
-    @Override
-    public void onBackPressed(){
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.main_view:
-                Intent intent = new Intent(AddTask.this,HomeWindow.class);
-                startActivity(intent);
-                break;
-            case R.id.profile:
-                intent = new Intent(AddTask.this,UserProfile.class);
-                startActivity(intent);
-                break;
-            case R.id.calendar:
-                intent = new Intent(AddTask.this, CalendarActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.groups:
-                intent = new Intent(AddTask.this, GroupList.class);
-                startActivity(intent);
-                break;
-            case R.id.tasks:
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-            case R.id.chat:
-                intent = new Intent(AddTask.this, ChatList.class);
-                startActivity(intent);
-                break;
-            case R.id.logout:
-                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
-                dbRef.child("status").setValue(false);
-                FirebaseAuth.getInstance().signOut();
-                intent = new Intent(AddTask.this, Login.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
-        }
-        return false;
     }
         
 

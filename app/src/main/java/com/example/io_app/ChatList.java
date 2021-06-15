@@ -141,10 +141,6 @@ public class ChatList extends AppCompatActivity implements NavigationView.OnNavi
                 intent = new Intent(ChatList.this, GroupList.class);
                 startActivity(intent);
                 break;
-            case R.id.tasks:
-                intent = new Intent(ChatList.this, AddTask.class);
-                startActivity(intent);
-                break;
             case R.id.chat:
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;

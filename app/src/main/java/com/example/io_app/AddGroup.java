@@ -13,9 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -33,6 +38,7 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener,
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    FirebaseUser currentUser;
 
 
     Button nextBtn;
@@ -59,6 +65,19 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener,
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(currentUser != null){
+            String[] fullName = currentUser.getDisplayName().split(" ");
+
+            TextView navName = headerView.findViewById(R.id.nameOnMenuID);
+            navName.setText(fullName[0] + " " + fullName[1]);
+            TextView onlineText = headerView.findViewById(R.id.onlineIndicID);
+            onlineText.setText("Online");
+        }
 
     }
 
@@ -92,7 +111,11 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener,
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.main_view:
-                Intent intent = new Intent(AddGroup.this,UserProfile.class);
+                Intent intent = new Intent(AddGroup.this,HomeWindow.class);
+                startActivity(intent);
+                break;
+            case R.id.profile:
+                intent = new Intent(AddGroup.this,UserProfile.class);
                 startActivity(intent);
                 break;
             case R.id.calendar:
@@ -100,14 +123,19 @@ public class AddGroup extends AppCompatActivity implements View.OnClickListener,
                 startActivity(intent);
                 break;
             case R.id.groups:
-                drawerLayout.closeDrawer(GravityCompat.START);
-                break;
-            case R.id.tasks:
-                intent = new Intent(AddGroup.this, AddTask.class);
+                intent = new Intent(AddGroup.this, GroupList.class);
                 startActivity(intent);
                 break;
             case R.id.chat:
                 intent = new Intent(AddGroup.this, ChatList.class);
+                startActivity(intent);
+                break;
+            case R.id.logout:
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users/"+currentUser.getUid());
+                dbRef.child("status").setValue(false);
+                FirebaseAuth.getInstance().signOut();
+                intent = new Intent(AddGroup.this, Login.class);
                 startActivity(intent);
                 break;
             default:

@@ -100,10 +100,6 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                 intent = new Intent(UserProfile.this, GroupList.class);
                 startActivity(intent);
                 break;
-            case R.id.tasks:
-                intent = new Intent(UserProfile.this, AddTask.class);
-                startActivity(intent);
-                break;
             case R.id.chat:
                 intent = new Intent(UserProfile.this, ChatList.class);
                 startActivity(intent);

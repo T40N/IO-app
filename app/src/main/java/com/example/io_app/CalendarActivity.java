@@ -97,10 +97,6 @@ public class CalendarActivity extends AppCompatActivity implements NavigationVie
                 intent = new Intent(CalendarActivity.this, GroupList.class);
                 startActivity(intent);
                 break;
-            case R.id.tasks:
-                intent = new Intent(CalendarActivity.this, AddTask.class);
-                startActivity(intent);
-                break;
             case R.id.chat:
                 intent = new Intent(CalendarActivity.this, ChatList.class);
                 startActivity(intent);

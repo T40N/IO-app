@@ -113,10 +113,6 @@ public class HomeWindow extends AppCompatActivity implements NavigationView.OnNa
                 intent = new Intent(HomeWindow.this, GroupList.class);
                 startActivity(intent);
                 break;
-            case R.id.tasks:
-                intent = new Intent(HomeWindow.this, AddTask.class);
-                startActivity(intent);
-                break;
             case R.id.chat:
                 intent = new Intent(HomeWindow.this, ChatList.class);
                 startActivity(intent);
